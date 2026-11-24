@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "verify:bundle": "node scripts/verify-cfsharp-bundle.mjs"
+    "verify:bundle": "node scripts/verify-docs-bundles.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",

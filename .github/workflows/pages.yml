@@ -38,11 +38,13 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Copy generated CfSharp documentation
+      - name: Copy generated project documentation
         shell: bash
         run: |
-          mkdir -p dist/cfsharp
-          cp -R content/cfsharp/. dist/cfsharp/
+          for project in cfsharp adapter; do
+            mkdir -p "dist/$project"
+            cp -R "content/$project/." "dist/$project/"
+          done
 
       - name: Verify Pages bundle
         run: npm run verify:bundle

@@ -18,5 +18,5 @@ the repository contains a small placeholder under `content/cfsharp/`.
 
 ## Deployment
 
-`.github/workflows/pages.yml` builds the React site, copies the generated documentation bundle to
-`dist/cfsharp/`, verifies the bundle, and deploys the complete static output to GitHub Pages.
+`.github/workflows/pages.yml` builds the React site, copies the generated documentation to
+`dist/cfsharp/` and `dist/adapter/`, verifies both bundles, and deploys the static output to GitHub Pages.
