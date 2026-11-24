@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Atomic original directory deletion | MirrorPulse Adapter SDK documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Atomic original directory deletion | MirrorPulse Adapter SDK documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/mirrorpulse/adapter-sdk/blob/main/docs/atomic-original-directory-deletion.md#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+        <script type="module" src="../public/main.js"></script>
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="cf-github-link nav-link" href="https://mirrorpulse.github.io/" aria-label="MirrorPulse home" title="MirrorPulse home"><span aria-hidden="true">←</span></a>
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Adapter SDK">
+            Adapter SDK
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="atomic-original-directory-deletion">Atomic original directory deletion</h1>
+
+<p>A backend that can commit a whole admitted subtree in one native transaction
+can offer <code>atomic-original-directory-delete-v1</code>, in addition to
+<code>original-directory-admission-v1</code>. This does not enable the separate individual
+child or final-directory effect capabilities.
+No default handshake enables it. <code>DeleteOriginalDirectoryAtomically</code> returns
+<code>OriginalDirectoryDeletedAtomically</code>; ordinary <code>MutationComplete</code> is insufficient.</p>
+<p>The request includes the complete original admission request and backend
+admission, and binds their fingerprints to the Host's sealed manifest. All
+operations must be conditional Delete operations in the admitted leaf-first
+order. Move, upload and directory creation are outside this capability. A staged
+cross-instance move may use this operation for source retirement only after the
+Host has durably verified the complete destination copy and authorized every
+source operation. The capability itself supplies no copy or verification proof.</p>
+<p>The backend revalidates its durable admission, complete inventory, original
+generations and conditions under the same qualified history and exclusion
+boundary as its native transaction. It reserves the immutable Host authorization
+before source mutation. The same admission or any of its operation IDs cannot be
+rebound to another plan, manifest or individual-effect execution. Capability
+negotiation, hashes and SDK shape checks cannot establish these native facts.</p>
+<p>All original removals and one immutable receipt commit together. No child result
+is returned or counted as accepted before the batch commits. The receipt retains
+every operation ID, original address and original generation in the authorized
+order, as well as the request, admission and manifest fingerprints and backend
+commit evidence. It is a whole-batch receipt; it is not a chain of provisional
+<code>AdapterOwnedChildEffectReceipt</code> values. It has no fabricated deletion revision.</p>
+<p>Before commit, cancellation or process death must preserve every original and
+leave no accepted receipt. After commit, a lost reply, cancellation or process
+restart must recover the identical receipt without opening or mutating a later
+occupant at the original path. The backend refuses changed authorization and
+missing, corrupt or incompatible retained evidence. Host acknowledgement follows
+durable acceptance of the full receipt and remains a separate product step.</p>
+<p><code>AdapterAtomicDirectoryDeletionWire</code> checks protocol, both capabilities,
+request/session/instance correlation, a 1 MiB body limit and exact reply membership.
+The dispatcher validates before invoking <code>IAdapterAtomicDirectoryDeletionBackend</code>
+and validates its reply. Signed Host/Worker integration must separately qualify
+durability, native history/exclusion, root authorization and official journal ACK.
+The SDK contract checks use a synthetic backend and do not claim those outcomes.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/mirrorpulse/adapter-sdk/blob/main/docs/atomic-original-directory-deletion.md#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © MirrorPulse Team. Licensed under Apache-2.0.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Package configuration contract | MirrorPulse Adapter SDK documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Package configuration contract | MirrorPulse Adapter SDK documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/mirrorpulse/adapter-sdk/blob/main/docs/package-configuration.md#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+        <script type="module" src="../public/main.js"></script>
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="cf-github-link nav-link" href="https://mirrorpulse.github.io/" aria-label="MirrorPulse home" title="MirrorPulse home"><span aria-hidden="true">←</span></a>
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Adapter SDK">
+            Adapter SDK
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="package-configuration-contract">Package configuration contract</h1>
+
+<p>SDK 1.0 packages use manifest schema <code>2</code>. Keep one <code>rootDefinitions</code> item and set <code>instancePolicy.maximumRootDefinitions</code> to <code>1</code>. One Adapter package can still be installed in multiple deployments. Use a canonical lowercase Adapter ID and a three-part stable or <code>-preview.N</code> package version.</p>
+<p>Use <code>presentation</code> for the package title, description, logo, and form. These are separate from the stable Adapter ID.</p>
+<pre><code class="lang-json">{
+  &quot;presentation&quot;: {
+    &quot;titleKey&quot;: &quot;package.title&quot;,
+    &quot;descriptionKey&quot;: &quot;package.description&quot;,
+    &quot;logoPath&quot;: &quot;assets/logo.png&quot;,
+    &quot;formPath&quot;: &quot;forms/config.xml&quot;
+  },
+  &quot;locales&quot;: [&quot;en-US&quot;],
+  &quot;localeMetadata&quot;: {
+    &quot;en-US&quot;: {
+      &quot;displayName&quot;: &quot;English (United States)&quot;,
+      &quot;resourcePath&quot;: &quot;locales/en-US.json&quot;
+    }
+  }
+}
+</code></pre>
+<p>Include each referenced file in the signed package inventory, with the exact same spelling and case. Resource paths use <code>/</code> and are relative to the package root. Images use PNG, JPEG, ICO or BMP. Locale files are flat JSON objects that map label keys to display text. The <code>en-US</code> table covers every label used in the form and presentation. A selected locale can omit keys to use the corresponding English text.</p>
+<p>The separate form is declarative XML. Its supported layout items are heading, paragraph and image. Every image requires a localized accessibility label. Field keys remain stable across releases. The form also supports the following editable controls and callback buttons.</p>
+<pre><code class="lang-xml">&lt;form version=&quot;1&quot;&gt;
+  &lt;heading textKey=&quot;setup.title&quot; /&gt;
+  &lt;paragraph textKey=&quot;setup.instructions&quot; /&gt;
+  &lt;image path=&quot;assets/logo.png&quot; altKey=&quot;package.title&quot; /&gt;
+  &lt;text key=&quot;endpoint&quot; labelKey=&quot;field.endpoint&quot; required=&quot;true&quot; /&gt;
+  &lt;password key=&quot;accessToken&quot; labelKey=&quot;field.accessToken&quot; required=&quot;false&quot; /&gt;
+  &lt;singleChoice key=&quot;mode&quot; labelKey=&quot;field.mode&quot; required=&quot;true&quot; default=&quot;read&quot;&gt;
+    &lt;option id=&quot;read&quot; labelKey=&quot;mode.read&quot; /&gt;
+    &lt;option id=&quot;write&quot; labelKey=&quot;mode.write&quot; /&gt;
+  &lt;/singleChoice&gt;
+  &lt;multiChoice key=&quot;scopes&quot; labelKey=&quot;field.scopes&quot; required=&quot;false&quot; default=&quot;read,write&quot;&gt;
+    &lt;option id=&quot;read&quot; labelKey=&quot;mode.read&quot; /&gt;
+    &lt;option id=&quot;write&quot; labelKey=&quot;mode.write&quot; /&gt;
+  &lt;/multiChoice&gt;
+  &lt;checkBox key=&quot;enabled&quot; labelKey=&quot;field.enabled&quot; required=&quot;false&quot; default=&quot;true&quot; /&gt;
+  &lt;callback id=&quot;authorize&quot; labelKey=&quot;action.authorize&quot;&gt;
+    &lt;write key=&quot;accessToken&quot; /&gt;
+    &lt;write key=&quot;scopes&quot; /&gt;
+  &lt;/callback&gt;
+&lt;/form&gt;
+</code></pre>
+<p>Use stable field keys, option IDs, and callback IDs independent of display language. The form requires a <code>true</code> or <code>false</code> value for each field's <code>required</code> attribute. Defaults are optional. Password fields cannot declare defaults. A single choice default names one option ID. Multiple choice defaults use comma-separated IDs and an empty default selects nothing. Check box defaults are <code>true</code> or <code>false</code>.</p>
+<p><code>AdapterPackageMetadata.Read</code> validates the versioned package metadata against the signed file inventory. <code>AdapterConfigurationForm.Read</code> validates the layout, field bindings and callback write declarations. <code>AdapterConfigurationTranslations.Read</code> verifies the fallback string table and resolves display labels. These methods operate on parsed metadata and package data supplied by the caller. The Host validates the signature and continues to own configuration, authorization transactions, validation and persistence. A callback's <code>write</code> list is the maximum set of fields the Host may accept from that callback.</p>
+<h2 id="authorization-health-and-updates">Authorization, health and updates</h2>
+<h3 id="configuration-only-worker-startup">Configuration-only Worker startup</h3>
+<p>MirrorPulse can start the signed Worker before any deployment exists and can use the same mode to reauthorize an existing deployment. Parse the usual <code>AdapterWorkerProcessArguments</code> and inspect <code>ConfigurationOnly</code>. In that mode, advertise <code>AdapterConfigurationCallbackContract.Capability</code> with protocol 2, then validate the Host's <code>Ready</code> with that launch mode. The accepted <code>Ready</code> has zero root bindings and includes the settings available for this authorization. Keep the normal sync handshake and startup path when <code>ConfigurationOnly</code> is false.</p>
+<pre><code class="lang-csharp">var arguments = AdapterWorkerProcessArguments.Parse(args);
+var offer = new AdapterHello(new(2, 2), arguments.ConfigurationOnly
+    ? [AdapterConfigurationCallbackContract.Capability]
+    : AdapterHandshake.V2Capabilities);
+
+// Send Hello and decode its matching Ready response as AdapterReady.
+AdapterHandshake.ValidateReady(ready, offer, arguments.ConfigurationOnly);
+channel.SelectProtocol(ready.SelectedVersion);
+</code></pre>
+<p>In configuration-only mode, handle <code>ConfigurationCallbackStart</code>, <code>ConfigurationCallbackPoll</code>, <code>ConfigurationCallbackCancel</code>, and the Host's <code>Stop</code>. Read callback messages with <code>AdapterConfigurationCallbackContract.ReadRequest</code> after reading the frame from <code>AdapterControlChannel</code>. Track the invocation ID, callback ID and expiry in memory for this session. Send <code>ConfigurationCallbackResult</code> as a response with the matching frame request ID. A pending response can include an HTTPS authorization page. A Worker that owns its own interaction window can return pending without a URL. A successful response proposes values only for fields listed in the callback's signed <code>write</code> list. Cancel ends the interaction and discards proposed writes.</p>
+<p><code>AdapterReady.CredentialBindings</code> indexes opaque Host credential references by password field key. For an existing deployment, a Worker can use a supplied reference with a <code>CredentialRequest</code> and read its matching <code>CredentialResponse</code> on the authenticated channel. Password values stay out of ordinary configuration and logs. Use the temporary cache directories supplied by the Host and keep authorization state in memory. MirrorPulse accepts authorized writes when the user saves the form, stores passwords in its credential store and ends the temporary Worker session. Send file operations, directory state and change notifications from the normal sync session.</p>
+<h3 id="health-and-updates">Health and updates</h3>
+<p>Offer <code>AdapterDeploymentContract.StructuredHealthCapability</code> when the Worker can identify configuration and credential issues. If the ordinary deployment's <code>Ready</code> selects that capability, send the complete <code>AdapterHealthReport</code> as a protocol 2 notification with <code>AdapterDeploymentContract.HealthReportMessage</code>, a fresh frame request ID, and <code>isResponse: false</code>. It can arrive before <code>Connected</code> when a credential blocks startup. Replace the report as conditions change, and send an empty issue list after recovery. Include the exact signed form field key when known. Credential issues can name password fields. Source and Worker failures carry no field. Keep the report within 16 unique issues and keep arbitrary diagnostic text and credential values out of it.</p>
+<p>Update checks are optional. A Worker can include <code>update-discovery</code> in its protocol 2 <code>Hello</code> and check that <code>Ready</code> selects it. After <code>Connected</code>, the Host can send <code>CheckAdapterUpdate</code> with an empty object. Reply with <code>AdapterUpdateOffer</code> using the same request, instance and session identifiers. This exchange applies to the selected deployment and carries no <code>rootKey</code>.</p>
+<p>Serialize <code>AdapterPackageUpdateResult</code> as the response payload. Set <code>Offer</code> to <code>null</code> when the selected package is current. Otherwise, offer the same Adapter ID, a strictly newer version, and an HTTPS URL or the absolute path of a local Windows <code>.mpadapter</code> file, represented as a <code>file:</code> URI. HTTPS packages carry an embedded signature. The Host asks the user before acquiring the package and checks its signature and identity before registering the version. Users can then select that version for each deployment.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/mirrorpulse/adapter-sdk/blob/main/docs/package-configuration.md#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © MirrorPulse Team. Licensed under Apache-2.0.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>SDK trusted publishing | MirrorPulse Adapter SDK documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="SDK trusted publishing | MirrorPulse Adapter SDK documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/mirrorpulse/adapter-sdk/blob/main/docs/nuget-publishing.md#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+        <script type="module" src="../public/main.js"></script>
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="cf-github-link nav-link" href="https://mirrorpulse.github.io/" aria-label="MirrorPulse home" title="MirrorPulse home"><span aria-hidden="true">←</span></a>
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Adapter SDK">
+            Adapter SDK
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="sdk-trusted-publishing">SDK trusted publishing</h1>
+
+<p>Configure trusted publishing on nuget.org for the <code>MirrorPulse.Adapter.Sdk</code> package. Match the names in this table to the GitHub release workflow.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Stable</th>
+<th>Preview</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repository owner</td>
+<td><code>MirrorPulse</code></td>
+<td><code>MirrorPulse</code></td>
+</tr>
+<tr>
+<td>Repository</td>
+<td><code>adapter-sdk</code></td>
+<td><code>adapter-sdk</code></td>
+</tr>
+<tr>
+<td>Workflow file</td>
+<td><code>sdk-release.yml</code></td>
+<td><code>sdk-release.yml</code></td>
+</tr>
+<tr>
+<td>Environment</td>
+<td><code>stable</code></td>
+<td><code>preview</code></td>
+</tr>
+<tr>
+<td>Package pattern</td>
+<td><code>MirrorPulse.Adapter.Sdk</code></td>
+<td><code>MirrorPulse.Adapter.Sdk</code></td>
+</tr>
+</tbody>
+</table>
+<p>Restrict the <code>stable</code> environment to <code>main</code> and the <code>preview</code> environment to <code>develop</code>. Require a stable reviewer and disable self-review. Set the <code>NUGET_USER</code> secret to the owning NuGet profile name. The workflow exchanges GitHub OIDC for a temporary NuGet credential after the candidate passes conformance on both Windows architectures and the environment approves publication. <a href="https://learn.microsoft.com/en-us/nuget/nuget-org/trusted-publishing">Configure trusted publishing</a></p>
+<p>Set the SDK version in <code>src/MirrorPulse.Adapter.Sdk/MirrorPulse.Adapter.Sdk.csproj</code>. Dispatch <strong>SDK Release</strong> from <code>develop</code> for a version with a <code>preview.N</code> suffix, or from protected <code>main</code> for a stable version. The default dispatch builds the package, specification and both native runners, then runs conformance against those exact artifacts. To publish, enable <code>publish</code> and enter <code>PUBLISH</code> in the confirmation field.</p>
+<p>NuGet and GitHub receive the same candidate from the workflow artifact. GitHub retains the original length, SHA256 and source commit in <code>sdk-release.json</code>. If one destination accepts the version and the other fails, recover using the original artifact and source evidence before changing the version or rebuilding it.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/mirrorpulse/adapter-sdk/blob/main/docs/nuget-publishing.md#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © MirrorPulse Team. Licensed under Apache-2.0.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
