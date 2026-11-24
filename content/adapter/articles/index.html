@@ -44,7 +44,7 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="cf-github-link nav-link" href="https://mirrorpulse.github.io/" aria-label="MirrorPulse home" title="MirrorPulse home"><span aria-hidden="true">←</span></a>
+          <a class="mp-home-link" href="https://mirrorpulse.github.io/" aria-label="Back to MirrorPulse home" title="Back to MirrorPulse home"><span aria-hidden="true">MirrorPulse</span></a>
           <a class="navbar-brand" href="../index.html">
             <img id="logo" class="svg" src="../logo.svg" alt="Adapter SDK">
             Adapter SDK
@@ -75,12 +75,53 @@
         <article data-uid="">
 <h1 id="adapter-sdk-documentation">Adapter SDK documentation</h1>
 
-<p>Start with <a href="getting-started.html">Getting started</a> to build the sample Worker and run the contract checks.</p>
-<ul>
-<li><a href="original-directory-admission-wire.html">Original directory admission</a></li>
-<li><a href="original-directory-retirement-wire.html">Original directory retirement</a></li>
-<li><a href="atomic-original-directory-deletion.html">Atomic directory deletion</a></li>
-</ul>
+<p>A MirrorPulse deployment connects one configured storage root to a
+Worker. The same Adapter package can serve several independent deployments.
+MirrorPulse starts a separate process and supplies settings and credential
+references for each deployment.</p>
+<h2 id="build-your-first-adapter">Build your first Adapter</h2>
+<ol>
+<li><a href="getting-started.html">Getting started</a> walks through the template, the package
+files to edit, and the first deployment.</li>
+<li><a href="package-configuration.html">Package configuration</a> covers the signed manifest,
+the localized XML form, saved settings and credentials, authorization
+callbacks, health reports and version offers.</li>
+<li><a href="implementing-a-worker.html">Implement a Worker</a> covers the process handshake,
+addresses, listing and ranged reads, uploads, mutation replay and cancellation.</li>
+<li><a href="test-and-publish.html">Test and publish an Adapter</a> shows what the SDK runner
+verifies and what to check against an actual backend and MirrorPulse Host.</li>
+</ol>
+<h2 id="protocol-and-api">Protocol and API</h2>
+<p>Use the <a href="https://github.com/mirrorpulse/adapter-sdk/blob/sdk-v1.0.0/spec/worker-v2.md">wire specification</a>
+for envelope and binary field definitions, including the versioned examples
+beside it. Use the <a href="../api/MirrorPulse.Adapter.Sdk.html">API reference</a>
+for the .NET types that implement those contracts.</p>
+<p>The following optional protocols require backend-specific evidence and
+durability. Implement ordinary file operations before assessing them.</p>
+<table>
+<thead>
+<tr>
+<th>Guide</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="original-directory-admission-wire.html">Original directory admission</a></td>
+<td>Preserve the original subtree identity and the ordered, conditional plan before committing any child effect.</td>
+</tr>
+<tr>
+<td><a href="original-directory-retirement-wire.html">Original directory retirement</a></td>
+<td>Verify the accepted child history and retire the original directory using its retained evidence.</td>
+</tr>
+<tr>
+<td><a href="atomic-original-directory-deletion.html">Atomic original directory deletion</a></td>
+<td>Commit and recover one qualified deletion of the whole admitted original subtree.</td>
+</tr>
+</tbody>
+</table>
+<p><a href="nuget-publishing.html">SDK trusted publishing</a> is the maintainer guide for
+publishing the SDK and its matching wire specification and conformance tools.</p>
 
 </article>
 

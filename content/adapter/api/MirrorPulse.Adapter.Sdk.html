@@ -44,7 +44,7 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="cf-github-link nav-link" href="https://mirrorpulse.github.io/" aria-label="MirrorPulse home" title="MirrorPulse home"><span aria-hidden="true">←</span></a>
+          <a class="mp-home-link" href="https://mirrorpulse.github.io/" aria-label="Back to MirrorPulse home" title="Back to MirrorPulse home"><span aria-hidden="true">MirrorPulse</span></a>
           <a class="navbar-brand" href="../index.html">
             <img id="logo" class="svg" src="../logo.svg" alt="Adapter SDK">
             Adapter SDK
@@ -84,11 +84,13 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterAdmittedDirectoryOperation.html">AdapterAdmittedDirectoryOperation</a></dt>
-      <dd></dd>
+      <dd><p>Backend observations for one exact planned source operation.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterAtomicDirectoryDeletedOriginal.html">AdapterAtomicDirectoryDeletedOriginal</a></dt>
-      <dd></dd>
+      <dd><p>One original removed within the batch's single committed native effect.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterAtomicDirectoryDeletionDispatcher.html">AdapterAtomicDirectoryDeletionDispatcher</a></dt>
@@ -96,15 +98,18 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterAtomicDirectoryDeletionReceipt.html">AdapterAtomicDirectoryDeletionReceipt</a></dt>
-      <dd></dd>
+      <dd><p>A durable whole-batch deletion receipt. It never represents a provisional individual child effect.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterAtomicDirectoryDeletionRequest.html">AdapterAtomicDirectoryDeletionRequest</a></dt>
-      <dd></dd>
+      <dd><p>Authorizes one atomic deletion of the complete admitted original subtree.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterAtomicDirectoryDeletionWire.html">AdapterAtomicDirectoryDeletionWire</a></dt>
-      <dd></dd>
+      <dd><p>An optional whole-subtree transaction, negotiated independently from individual child effects.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterBinaryChunk.html">AdapterBinaryChunk</a></dt>
@@ -112,87 +117,108 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterBinaryChunkCodec.html">AdapterBinaryChunkCodec</a></dt>
-      <dd></dd>
+      <dd><p>Encodes the SDK side of the version-one binary chunk frame.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterBinaryChunkV2Codec.html">AdapterBinaryChunkV2Codec</a></dt>
-      <dd></dd>
+      <dd><p>V2 prefixes the unchanged v1 chunk with an explicit UTF-8 root address.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterConfigurationCallbackContract.html">AdapterConfigurationCallbackContract</a></dt>
-      <dd></dd>
+      <dd><p>Contract for starting, polling and cancelling a package-declared callback.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterConfigurationCallbackRequest.html">AdapterConfigurationCallbackRequest</a></dt>
-      <dd></dd>
+      <dd><p>A time-limited Host request carried on the authenticated deployment's Worker channel.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterConfigurationCallbackResult.html">AdapterConfigurationCallbackResult</a></dt>
-      <dd></dd>
+      <dd><p>Callback progress or proposed field writes. The response does not persist configuration.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterConfigurationForm.html">AdapterConfigurationForm</a></dt>
-      <dd></dd>
+      <dd><p>Declarative layout and field bindings for configuration owned by the Host.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterConfigurationTranslations.html">AdapterConfigurationTranslations</a></dt>
-      <dd></dd>
+      <dd><p>Localized package labels with a required English fallback.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterConfigurationWrite.html">AdapterConfigurationWrite</a></dt>
-      <dd></dd>
+      <dd><p>The Worker proposes one field value. Its textual representation never includes the value.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterControlChannel.html">AdapterControlChannel</a></dt>
-      <dd></dd>
+      <dd><p>Frames control and binary messages for one MirrorPulse Worker session.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterControlFrame.html">AdapterControlFrame</a></dt>
-      <dd></dd>
+      <dd><p>The control envelope shared by the bootstrap and negotiated Worker protocols.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterCreateDirectoryRequest.html">AdapterCreateDirectoryRequest</a></dt>
-      <dd></dd>
+      <dd><p>Creates one directory with the requested absence policy and a stable operation ID.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterDeploymentContract.html">AdapterDeploymentContract</a></dt>
-      <dd></dd>
+      <dd><p>Message names, capability identifiers and validators for deployment health and package update discovery.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterDirectoryAdmission.html">AdapterDirectoryAdmission</a></dt>
-      <dd></dd>
+      <dd><p>A replayable backend admission which retains every original generation and direct-parent witness.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterDirectoryAdmissionRequest.html">AdapterDirectoryAdmissionRequest</a></dt>
-      <dd></dd>
+      <dd><p>Requests durable original generations for every operation before the first source mutation.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterDirectoryChildRequirement.html">AdapterDirectoryChildRequirement</a></dt>
-      <dd></dd>
+      <dd><p>One required original direct-child operation from the Host's already sealed manifest.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterDirectoryEffects.html">AdapterDirectoryEffects</a></dt>
-      <dd></dd>
+      <dd><p>Validates optional evidence without inferring capability, backend atomicity or current mutation authority.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterDirectoryGenerationWitness.html">AdapterDirectoryGenerationWitness</a></dt>
-      <dd></dd>
+      <dd><p>Immutable backend evidence for one original directory generation and its admitted parent.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterDirectoryRetirementEvidence.html">AdapterDirectoryRetirementEvidence</a></dt>
-      <dd></dd>
+      <dd><p>Validates complete owned dependencies before a backend considers the final nonrecursive parent operation.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterDirectoryRetirementRequest.html">AdapterDirectoryRetirementRequest</a></dt>
-      <dd></dd>
+      <dd><p>A final nonrecursive directory operation bound to a sealed child ledger and original direct parents.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterDirectoryRetirementWire.html">AdapterDirectoryRetirementWire</a></dt>
-      <dd></dd>
+      <dd><p>Optional protocol-v2 messages; an ordinary v2 handshake never enables this contract.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterFileAddress.html">AdapterFileAddress</a></dt>
-      <dd></dd>
+      <dd><p>A source address is always scoped to one configured root.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterFormCallback.html">AdapterFormCallback</a></dt>
@@ -220,27 +246,33 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterHandshake.html">AdapterHandshake</a></dt>
-      <dd></dd>
+      <dd><p>Negotiates Worker protocol versions and checks the Host's Ready response.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterHealthIssue.html">AdapterHealthIssue</a></dt>
-      <dd></dd>
+      <dd><p>A machine-readable reason for an unhealthy deployment. A form field can be identified when known.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterHealthReport.html">AdapterHealthReport</a></dt>
-      <dd></dd>
+      <dd><p>The current issues for one negotiated deployment session. An empty list clears previous issues.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterHello.html">AdapterHello</a></dt>
-      <dd></dd>
+      <dd><p>The Worker version range and the case-sensitive capabilities it offers.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterMutationPreconditions.html">AdapterMutationPreconditions</a></dt>
-      <dd></dd>
+      <dd><p>Both source revision and destination state are checked before mutation.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterNamedPipeClient.html">AdapterNamedPipeClient</a></dt>
-      <dd></dd>
+      <dd><p>Connects a Worker to the local named pipe opened by the MirrorPulse Host.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterNegotiation.html">AdapterNegotiation</a></dt>
@@ -248,83 +280,103 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterOperationRequest.html">AdapterOperationRequest</a></dt>
-      <dd></dd>
+      <dd><p>A root-qualified mutation with an operation ID that survives transport retries.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterOperationResult.html">AdapterOperationResult</a></dt>
-      <dd></dd>
+      <dd><p>Returns the accepted operation ID, its root and the resulting revision when one exists.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterOriginalChildEffectRequest.html">AdapterOriginalChildEffectRequest</a></dt>
-      <dd></dd>
+      <dd><p>One source file effect from a durable admission and the Host's sealed execution manifest.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterOriginalDirectoryDispatcher.html">AdapterOriginalDirectoryDispatcher</a></dt>
-      <dd></dd>
+      <dd><p>Validates negotiated requests before invoking the backend and validates its correlated reply.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterOriginalDirectoryOperation.html">AdapterOriginalDirectoryOperation</a></dt>
-      <dd></dd>
+      <dd><p>One immutable source operation in a leaf-first original subtree plan.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterOriginalDirectoryWire.html">AdapterOriginalDirectoryWire</a></dt>
-      <dd></dd>
+      <dd><p>Negotiated messages for acquiring original directory evidence and executing admitted file effects.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterOriginalParentPredecessor.html">AdapterOriginalParentPredecessor</a></dt>
-      <dd></dd>
+      <dd><p>Retains the latest accepted effect for one explicitly named original parent.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterOwnedChildEffectReceipt.html">AdapterOwnedChildEffectReceipt</a></dt>
-      <dd></dd>
+      <dd><p>Retains an original child effect and every direct-parent transition separately from its nullable mutation result.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterOwnedParentTransition.html">AdapterOwnedParentTransition</a></dt>
-      <dd></dd>
+      <dd><p>One accepted transition of an original direct parent, produced within the backend's atomic boundary.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterPackageIdentity.html">AdapterPackageIdentity</a></dt>
-      <dd></dd>
+      <dd><p>Stable identity used by signed package indexes and installation requests.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterPackageMetadata.html">AdapterPackageMetadata</a></dt>
-      <dd></dd>
+      <dd><p>Package-local presentation and form metadata for SDK 1.0 packages.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterPackagePath.html">AdapterPackagePath</a></dt>
-      <dd></dd>
+      <dd><p>One canonical relative spelling for Windows package files and manifest resources.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterPackageUpdateOffer.html">AdapterPackageUpdateOffer</a></dt>
-      <dd></dd>
+      <dd><p>A proposed package at an HTTPS URL or a local Windows file location.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterPackageUpdateResult.html">AdapterPackageUpdateResult</a></dt>
-      <dd></dd>
+      <dd><p>The response to a deployment-wide update check. A null offer means the selected version is current.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterPipeFrameLimits.html">AdapterPipeFrameLimits</a></dt>
-      <dd></dd>
+      <dd><p>Wire limits that apply to both control envelopes and binary frame payloads.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterProtocolJson.html">AdapterProtocolJson</a></dt>
-      <dd></dd>
+      <dd><p>Wire names are stable and independent of language-specific DTO names.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterReadRequest.html">AdapterReadRequest</a></dt>
-      <dd></dd>
+      <dd><p>Requests a bounded file range and, when supplied, pins it to the expected revision.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterReady.html">AdapterReady</a></dt>
-      <dd></dd>
+      <dd><p>The Host response selecting a protocol and supplying settings for the Worker session.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterRemoteChange.html">AdapterRemoteChange</a></dt>
-      <dd></dd>
+      <dd><p>One Adapter-owned change, with paths relative to its declared first-level root.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterRemoteChangeBatch.html">AdapterRemoteChangeBatch</a></dt>
-      <dd></dd>
+      <dd><p>An ordered batch with opaque checkpoints before and after its changes.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterRemoteMetadata.html">AdapterRemoteMetadata</a></dt>
@@ -332,27 +384,33 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterRootBinding.html">AdapterRootBinding</a></dt>
-      <dd></dd>
+      <dd><p>An authorized root key with its enabled state and Host-owned settings.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterStreamBinding.html">AdapterStreamBinding</a></dt>
-      <dd></dd>
+      <dd><p>Validates a stream incrementally without retaining its data.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterTransferLease.html">AdapterTransferLease</a></dt>
-      <dd></dd>
+      <dd><p>Owns a temporary transfer file that is deleted when its stream closes.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterVersionRange.html">AdapterVersionRange</a></dt>
-      <dd></dd>
+      <dd><p>The inclusive lower and upper envelope versions offered during negotiation.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterWorkerContext.html">AdapterWorkerContext</a></dt>
-      <dd></dd>
+      <dd><p>Non-secret startup context supplied by MirrorPulse to an Adapter Worker.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterWorkerFrame.html">AdapterWorkerFrame</a></dt>
-      <dd></dd>
+      <dd><p>One v2 frame, containing a control message or a binary chunk.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterWorkerHost.html">AdapterWorkerHost</a></dt>
@@ -360,22 +418,26 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.AdapterWorkerProcessArguments.html">AdapterWorkerProcessArguments</a></dt>
-      <dd></dd>
+      <dd><p>The Host-provided Worker process identity, pipe name and launch mode.</p>
+</dd>
     </dl>
     <h3 id="interfaces">
 Interfaces
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.IAdapterAtomicDirectoryDeletionBackend.html">IAdapterAtomicDirectoryDeletionBackend</a></dt>
-      <dd></dd>
+      <dd><p>Commits all admitted deletions and their one immutable receipt together, then replays that receipt after restart.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.IAdapterOriginalDirectoryAdmissionBackend.html">IAdapterOriginalDirectoryAdmissionBackend</a></dt>
-      <dd></dd>
+      <dd><p>A backend validates and persists complete original admissions without implying mutation capability.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.IAdapterOriginalDirectoryBackend.html">IAdapterOriginalDirectoryBackend</a></dt>
-      <dd></dd>
+      <dd><p>A backend persists admissions, validates its retained originals, and commits each effect and receipt atomically.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="MirrorPulse.Adapter.Sdk.IAdapterWorker.html">IAdapterWorker</a></dt>

@@ -44,7 +44,7 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="cf-github-link nav-link" href="https://mirrorpulse.github.io/" aria-label="MirrorPulse home" title="MirrorPulse home"><span aria-hidden="true">←</span></a>
+          <a class="mp-home-link" href="https://mirrorpulse.github.io/" aria-label="Back to MirrorPulse home" title="Back to MirrorPulse home"><span aria-hidden="true">MirrorPulse</span></a>
           <a class="navbar-brand" href="../index.html">
             <img id="logo" class="svg" src="../logo.svg" alt="Adapter SDK">
             Adapter SDK
@@ -76,6 +76,18 @@
 <h1 id="package-configuration-contract">Package configuration contract</h1>
 
 <p>SDK 1.0 packages use manifest schema <code>2</code>. Keep one <code>rootDefinitions</code> item and set <code>instancePolicy.maximumRootDefinitions</code> to <code>1</code>. One Adapter package can still be installed in multiple deployments. Use a canonical lowercase Adapter ID and a three-part stable or <code>-preview.N</code> package version.</p>
+<h2 id="package-identity-and-files">Package identity and files</h2>
+<p>Start from the template's <code>eng/release-manifest.json</code>. The package ID identifies
+the Adapter across versions. The root key identifies its declared root and must
+stay stable for deployments that will upgrade in place. The root label and
+directory name supply presentation defaults. The actual deployment display name
+is saved by the Host. Use separate IDs for separate Adapters, even if they share
+a storage library.</p>
+<p>Package the Worker entrypoints and their private runtime under the matching
+<code>win-x64</code> and <code>win-arm64</code> manifest keys. Declare protocol 2 and the capabilities
+the backend actually supports. Declaring a package capability does not select
+a wire feature. The Worker still negotiates wire capabilities at startup.</p>
+<h2 id="localized-presentation-and-forms">Localized presentation and forms</h2>
 <p>Use <code>presentation</code> for the package title, description, logo, and form. These are separate from the stable Adapter ID.</p>
 <pre><code class="lang-json">{
   &quot;presentation&quot;: {
@@ -118,6 +130,24 @@
 </code></pre>
 <p>Use stable field keys, option IDs, and callback IDs independent of display language. The form requires a <code>true</code> or <code>false</code> value for each field's <code>required</code> attribute. Defaults are optional. Password fields cannot declare defaults. A single choice default names one option ID. Multiple choice defaults use comma-separated IDs and an empty default selects nothing. Check box defaults are <code>true</code> or <code>false</code>.</p>
 <p><code>AdapterPackageMetadata.Read</code> validates the versioned package metadata against the signed file inventory. <code>AdapterConfigurationForm.Read</code> validates the layout, field bindings and callback write declarations. <code>AdapterConfigurationTranslations.Read</code> verifies the fallback string table and resolves display labels. These methods operate on parsed metadata and package data supplied by the caller. The Host validates the signature and continues to own configuration, authorization transactions, validation and persistence. A callback's <code>write</code> list is the maximum set of fields the Host may accept from that callback.</p>
+<h3 id="settings-and-credentials">Settings and credentials</h3>
+<p>The Host renders the form and owns Save. Ordinary controls contribute values
+under their field keys. Choice values use option IDs, even when their labels
+change with the language. Multi-choice selects comma-separated IDs and a check
+box contributes <code>true</code> or <code>false</code>. Validate backend-specific combinations,
+such as credentials required only for a selected authentication mode, when
+reading settings. Keep help text and validation tied to field keys.</p>
+<p>A password control is a secret field. For a one-root deployment, read its
+opaque reference from <code>Ready.CredentialBindings</code>, indexed by field key, and
+use a correlated credential request on the established channel. A reference
+is an identifier, so sending it as a password will fail. Keep returned secret
+values in memory only and keep them out of config files, diagnostics and error
+payloads. The Worker can report a missing or expired password with structured
+health if it implements that capability.</p>
+<p>Keep existing field and choice IDs stable across updates. Changing a label
+keeps the saved value. Introducing a new required field can leave an existing
+deployment needing user input. Exercise that case and use a field-keyed health
+issue where the Worker can identify the missing value.</p>
 <h2 id="authorization-health-and-updates">Authorization, health and updates</h2>
 <h3 id="configuration-only-worker-startup">Configuration-only Worker startup</h3>
 <p>MirrorPulse can start the signed Worker before any deployment exists and can use the same mode to reauthorize an existing deployment. Parse the usual <code>AdapterWorkerProcessArguments</code> and inspect <code>ConfigurationOnly</code>. In that mode, advertise <code>AdapterConfigurationCallbackContract.Capability</code> with protocol 2, then validate the Host's <code>Ready</code> with that launch mode. The accepted <code>Ready</code> has zero root bindings and includes the settings available for this authorization. Keep the normal sync handshake and startup path when <code>ConfigurationOnly</code> is false.</p>

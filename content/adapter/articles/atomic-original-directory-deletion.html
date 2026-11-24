@@ -44,7 +44,7 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="cf-github-link nav-link" href="https://mirrorpulse.github.io/" aria-label="MirrorPulse home" title="MirrorPulse home"><span aria-hidden="true">←</span></a>
+          <a class="mp-home-link" href="https://mirrorpulse.github.io/" aria-label="Back to MirrorPulse home" title="Back to MirrorPulse home"><span aria-hidden="true">MirrorPulse</span></a>
           <a class="navbar-brand" href="../index.html">
             <img id="logo" class="svg" src="../logo.svg" alt="Adapter SDK">
             Adapter SDK
@@ -75,12 +75,16 @@
         <article data-uid="">
 <h1 id="atomic-original-directory-deletion">Atomic original directory deletion</h1>
 
+<p>Use this optional path only when the backend can make every original removal
+and its effect receipt visible in one durable transaction. If it can commit
+only one child at a time, see <a href="original-directory-admission-wire.html">admission and child effects</a>.</p>
 <p>A backend that can commit a whole admitted subtree in one native transaction
 can offer <code>atomic-original-directory-delete-v1</code>, in addition to
 <code>original-directory-admission-v1</code>. This does not enable the separate individual
 child or final-directory effect capabilities.
-No default handshake enables it. <code>DeleteOriginalDirectoryAtomically</code> returns
+Opt in during negotiation. <code>DeleteOriginalDirectoryAtomically</code> returns
 <code>OriginalDirectoryDeletedAtomically</code>; ordinary <code>MutationComplete</code> is insufficient.</p>
+<h2 id="validate-and-reserve-the-admitted-plan">Validate and reserve the admitted plan</h2>
 <p>The request includes the complete original admission request and backend
 admission, and binds their fingerprints to the Host's sealed manifest. All
 operations must be conditional Delete operations in the admitted leaf-first
@@ -94,6 +98,7 @@ boundary as its native transaction. It reserves the immutable Host authorization
 before source mutation. The same admission or any of its operation IDs cannot be
 rebound to another plan, manifest or individual-effect execution. Capability
 negotiation, hashes and SDK shape checks cannot establish these native facts.</p>
+<h2 id="commit-reply-and-recover">Commit, reply and recover</h2>
 <p>All original removals and one immutable receipt commit together. No child result
 is returned or counted as accepted before the batch commits. The receipt retains
 every operation ID, original address and original generation in the authorized
@@ -106,6 +111,12 @@ restart must recover the identical receipt without opening or mutating a later
 occupant at the original path. The backend refuses changed authorization and
 missing, corrupt or incompatible retained evidence. Host acknowledgement follows
 durable acceptance of the full receipt and remains a separate product step.</p>
+<p>For a backend qualification, interrupt execution once before commit and once
+after commit but before replying. Before commit, verify the entire original
+inventory and the absence of an accepted receipt. After commit, restart and
+replay the unchanged request. Verify that its receipt is identical and that
+a later object created at an old path is untouched. Also replay with a changed
+manifest and verify that the backend refuses it without applying any effects.</p>
 <p><code>AdapterAtomicDirectoryDeletionWire</code> checks protocol, both capabilities,
 request/session/instance correlation, a 1 MiB body limit and exact reply membership.
 The dispatcher validates before invoking <code>IAdapterAtomicDirectoryDeletionBackend</code>

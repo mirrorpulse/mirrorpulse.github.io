@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class AdapterProtocolJson | MirrorPulse Adapter SDK documentation ">
       
-      
+      <meta name="description" content="Wire names are stable and independent of language-specific DTO names.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -44,7 +44,7 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="cf-github-link nav-link" href="https://mirrorpulse.github.io/" aria-label="MirrorPulse home" title="MirrorPulse home"><span aria-hidden="true">←</span></a>
+          <a class="mp-home-link" href="https://mirrorpulse.github.io/" aria-label="Back to MirrorPulse home" title="Back to MirrorPulse home"><span aria-hidden="true">MirrorPulse</span></a>
           <a class="navbar-brand" href="../index.html">
             <img id="logo" class="svg" src="../logo.svg" alt="Adapter SDK">
             Adapter SDK
@@ -85,7 +85,8 @@ Class AdapterProtocolJson  <a class="header-action link-secondary" title="View s
   <dl><dt>Assembly</dt><dd>MirrorPulse.Adapter.Sdk.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Wire names are stable and independent of language-specific DTO names.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -229,7 +230,8 @@ Class AdapterProtocolJson  <a class="header-action link-secondary" title="View s
   <a class="header-action link-secondary" title="View source" href="https://github.com/mirrorpulse/adapter-sdk/blob/main/src/MirrorPulse.Adapter.Sdk/AdapterProtocolV2.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Reading a v1 address is allowed only with an explicit single-root binding.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -310,7 +312,8 @@ Class AdapterProtocolJson  <a class="header-action link-secondary" title="View s
   <a class="header-action link-secondary" title="View source" href="https://github.com/mirrorpulse/adapter-sdk/blob/main/src/MirrorPulse.Adapter.Sdk/AdapterProtocolV2.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Validates the operation ID, address shapes, required destination and revision length.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -332,6 +335,9 @@ Class AdapterProtocolJson  <a class="header-action link-secondary" title="View s
 
 
 
+  <h4 class="section" id="MirrorPulse_Adapter_Sdk_AdapterProtocolJson_ValidateMutation_MirrorPulse_Adapter_Sdk_AdapterOperationRequest_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The Worker must separately authorize the roots and enforce the requested conditions before any backend effect.</p>
+</div>
 
 
 

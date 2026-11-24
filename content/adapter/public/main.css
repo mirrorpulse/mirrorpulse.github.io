@@ -67,6 +67,52 @@ header.bg-body {
   letter-spacing: -0.04em;
 }
 
+.mp-home-link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-inline-size: 44px;
+  min-block-size: 44px;
+  margin-inline-end: 0.75rem;
+  padding-inline: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--cf-mint) 30%, var(--cf-border));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--cf-mint) 8%, var(--cf-surface-strong));
+  color: var(--cf-mint-deep);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.mp-home-link::before {
+  content: '';
+  inline-size: 0.47rem;
+  block-size: 0.47rem;
+  border-block-end: 2px solid currentColor;
+  border-inline-start: 2px solid currentColor;
+  rotate: 45deg;
+}
+
+.mp-home-link:hover,
+.mp-home-link:focus-visible {
+  border-color: var(--cf-mint);
+  background: color-mix(in srgb, var(--cf-mint) 18%, var(--cf-surface-strong));
+  color: var(--cf-mint-deep);
+}
+
+.mp-home-link:focus-visible {
+  outline: 2px solid var(--cf-mint-deep);
+  outline-offset: 2px;
+}
+
+@media (max-width: 575.98px) {
+  .mp-home-link { margin-inline-end: 0.5rem; padding-inline: 0; }
+  .mp-home-link span { display: none; }
+}
+
 .cf-github-link {
   display: inline-flex !important;
   flex: 0 0 auto;

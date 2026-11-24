@@ -44,7 +44,7 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="cf-github-link nav-link" href="https://mirrorpulse.github.io/" aria-label="MirrorPulse home" title="MirrorPulse home"><span aria-hidden="true">←</span></a>
+          <a class="mp-home-link" href="https://mirrorpulse.github.io/" aria-label="Back to MirrorPulse home" title="Back to MirrorPulse home"><span aria-hidden="true">MirrorPulse</span></a>
           <a class="navbar-brand" href="../index.html">
             <img id="logo" class="svg" src="../logo.svg" alt="Adapter SDK">
             Adapter SDK
@@ -75,6 +75,11 @@
         <article data-uid="">
 <h1 id="sdk-trusted-publishing">SDK trusted publishing</h1>
 
+<p>Use this procedure when publishing the SDK itself. Adapter authors publish
+their Workers through the <a href="test-and-publish.html">Adapter package workflow</a>.
+A single SDK release binds NuGet, the wire specification and the native
+conformance tools to the same source commit.</p>
+<h2 id="configure-github-and-nuget">Configure GitHub and NuGet</h2>
 <p>Configure trusted publishing on nuget.org for the <code>MirrorPulse.Adapter.Sdk</code> package. Match the names in this table to the GitHub release workflow.</p>
 <table>
 <thead>
@@ -113,8 +118,43 @@
 </tbody>
 </table>
 <p>Restrict the <code>stable</code> environment to <code>main</code> and the <code>preview</code> environment to <code>develop</code>. Require a stable reviewer and disable self-review. Set the <code>NUGET_USER</code> secret to the owning NuGet profile name. The workflow exchanges GitHub OIDC for a temporary NuGet credential after the candidate passes conformance on both Windows architectures and the environment approves publication. <a href="https://learn.microsoft.com/en-us/nuget/nuget-org/trusted-publishing">Configure trusted publishing</a></p>
+<h2 id="qualify-and-publish-one-candidate">Qualify and publish one candidate</h2>
 <p>Set the SDK version in <code>src/MirrorPulse.Adapter.Sdk/MirrorPulse.Adapter.Sdk.csproj</code>. Dispatch <strong>SDK Release</strong> from <code>develop</code> for a version with a <code>preview.N</code> suffix, or from protected <code>main</code> for a stable version. The default dispatch builds the package, specification and both native runners, then runs conformance against those exact artifacts. To publish, enable <code>publish</code> and enter <code>PUBLISH</code> in the confirmation field.</p>
 <p>NuGet and GitHub receive the same candidate from the workflow artifact. GitHub retains the original length, SHA256 and source commit in <code>sdk-release.json</code>. If one destination accepts the version and the other fails, recover using the original artifact and source evidence before changing the version or rebuilding it.</p>
+<p>Check the published SDK version in the NuGet package listing and the GitHub
+tag. Verify the package and companion archives against the release inventory
+before updating consumer lock files. The GitHub release contains the exact
+package used for the fixed-hash feed, the protocol specification, and one
+standalone runner for each supported architecture.</p>
+<h2 id="diagnose-a-failed-release">Diagnose a failed release</h2>
+<table>
+<thead>
+<tr>
+<th>Where it stopped</th>
+<th>What to inspect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Version or source resolution</td>
+<td>Check the project version, selected branch and channel. The version cannot replace an existing published version.</td>
+</tr>
+<tr>
+<td>Native conformance</td>
+<td>Read the failed architecture's evidence. Fix source and qualify a new candidate before publishing.</td>
+</tr>
+<tr>
+<td>Environment or OIDC</td>
+<td>Check the environment review and its branch restrictions. Match the workflow filename, repository identity and NuGet owner against the configured policy.</td>
+</tr>
+<tr>
+<td>One destination published</td>
+<td>Hold the candidate artifact and its hashes. Check which destination already accepted those bytes, then use those exact bytes to finish recovery.</td>
+</tr>
+</tbody>
+</table>
+<p>The public documentation has its own workflow. Documentation-only fixes can
+deploy to the site through <code>main</code> without creating a new SDK package version.</p>
 
 </article>
 

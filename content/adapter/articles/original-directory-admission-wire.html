@@ -44,7 +44,7 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="cf-github-link nav-link" href="https://mirrorpulse.github.io/" aria-label="MirrorPulse home" title="MirrorPulse home"><span aria-hidden="true">←</span></a>
+          <a class="mp-home-link" href="https://mirrorpulse.github.io/" aria-label="Back to MirrorPulse home" title="Back to MirrorPulse home"><span aria-hidden="true">MirrorPulse</span></a>
           <a class="navbar-brand" href="../index.html">
             <img id="logo" class="svg" src="../logo.svg" alt="Adapter SDK">
             Adapter SDK
@@ -75,6 +75,12 @@
         <article data-uid="">
 <h1 id="original-directory-admission-and-child-effects">Original directory admission and child effects</h1>
 
+<p>Use this protocol when a backend can identify the complete original subtree,
+observe native generations, and verify each child effect against a durable
+admission. Workers with only ordinary file commands can leave this capability
+unselected. Read <a href="implementing-a-worker.html">Implement a Worker</a> for the shared
+session and operation rules.</p>
+<h2 id="admit-the-original-plan">Admit the original plan</h2>
 <p>A Worker negotiates <code>original-directory-admission-v1</code> before accepting
 <code>AdmitOriginalDirectory</code>, which returns <code>OriginalDirectoryAdmitted</code>.
 Individual <code>ApplyOriginalChild</code> / <code>OriginalChildApplied</code> exchanges additionally
@@ -95,6 +101,7 @@ destination parent witnesses. Witnesses retain the admission request fingerprint
 The admission fingerprint covers those observations. Duplicate requests recover
 that same admission. A changed request or incomplete inventory is refused.
 The backend retains the stable operation claims across admissions.</p>
+<h2 id="apply-a-child-and-extend-the-parent-history">Apply a child and extend the parent history</h2>
 <p>Each file effect request retains the admission and Host manifest fingerprints,
 original operation and generation, original parent witnesses and the previously
 accepted receipt for each affected parent. Its fingerprint includes these
@@ -109,6 +116,13 @@ starts from the admitted revision. Later effects extend the previously accepted
 receipt. A deletion's accepted revision is null. The backend commits the native
 effect and durable receipt together and returns that receipt after a lost reply
 or process restart. The Host persists the same receipt before advancing its plan.</p>
+<p>For example, a plan deleting <code>incoming/first.txt</code>, then
+<code>incoming/second.txt</code>, then <code>incoming</code> starts the first child at the admitted
+revision of <code>incoming</code>. Its receipt accounts for the first parent revision
+change. The second child must extend that receipt, so a later version caused
+by an unrelated writer cannot become its starting point. The final retirement
+uses both accepted children and their resulting revision.</p>
+<h2 id="integrate-and-exercise-recovery">Integrate and exercise recovery</h2>
 <p><code>AdapterOriginalDirectoryWire</code> validates protocol, negotiated capabilities,
 bounded payloads and request/session/instance correlation. Each body is limited
 to 1 MiB. <code>AdapterOriginalDirectoryDispatcher</code> decodes before calling the backend

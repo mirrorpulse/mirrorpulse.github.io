@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class AdapterHandshake | MirrorPulse Adapter SDK documentation ">
       
-      
+      <meta name="description" content="Negotiates Worker protocol versions and checks the Host&#39;s Ready response.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -44,7 +44,7 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="cf-github-link nav-link" href="https://mirrorpulse.github.io/" aria-label="MirrorPulse home" title="MirrorPulse home"><span aria-hidden="true">←</span></a>
+          <a class="mp-home-link" href="https://mirrorpulse.github.io/" aria-label="Back to MirrorPulse home" title="Back to MirrorPulse home"><span aria-hidden="true">MirrorPulse</span></a>
           <a class="navbar-brand" href="../index.html">
             <img id="logo" class="svg" src="../logo.svg" alt="Adapter SDK">
             Adapter SDK
@@ -85,7 +85,8 @@ Class AdapterHandshake  <a class="header-action link-secondary" title="View sour
   <dl><dt>Assembly</dt><dd>MirrorPulse.Adapter.Sdk.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Negotiates Worker protocol versions and checks the Host's Ready response.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -134,6 +135,9 @@ Class AdapterHandshake  <a class="header-action link-secondary" title="View sour
 
 
 
+  <h2 id="MirrorPulse_Adapter_Sdk_AdapterHandshake_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Send the initial Hello in envelope version 1, including for a v2-only Worker.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -147,7 +151,8 @@ Class AdapterHandshake  <a class="header-action link-secondary" title="View sour
   <a class="header-action link-secondary" title="View source" href="https://github.com/mirrorpulse/adapter-sdk/blob/main/src/MirrorPulse.Adapter.Sdk/AdapterHandshake.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The mandatory capabilities for a protocol-v2 deployment session.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -182,7 +187,8 @@ Class AdapterHandshake  <a class="header-action link-secondary" title="View sour
   <a class="header-action link-secondary" title="View source" href="https://github.com/mirrorpulse/adapter-sdk/blob/main/src/MirrorPulse.Adapter.Sdk/AdapterHandshake.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Finds the highest common supported version for an ordinary deployment.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -211,6 +217,9 @@ Class AdapterHandshake  <a class="header-action link-secondary" title="View sour
 
 
 
+  <h4 class="section" id="MirrorPulse_Adapter_Sdk_AdapterHandshake_Negotiate_MirrorPulse_Adapter_Sdk_AdapterHello_System_Int32_MirrorPulse_Adapter_Sdk_AdapterVersionRange__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A v2 offer missing a mandatory capability is rejected. Configuration-only sessions use the separate Ready validation path.</p>
+</div>
 
 
 
@@ -222,7 +231,8 @@ Class AdapterHandshake  <a class="header-action link-secondary" title="View sour
   <a class="header-action link-secondary" title="View source" href="https://github.com/mirrorpulse/adapter-sdk/blob/main/src/MirrorPulse.Adapter.Sdk/AdapterHandshake.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Older Workers had no version offer; malformed offers never use this fallback.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -258,7 +268,8 @@ Class AdapterHandshake  <a class="header-action link-secondary" title="View sour
   <a class="header-action link-secondary" title="View source" href="https://github.com/mirrorpulse/adapter-sdk/blob/main/src/MirrorPulse.Adapter.Sdk/AdapterHandshake.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Validates Ready for an ordinary deployment before the Worker selects the negotiated protocol.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -291,7 +302,8 @@ Class AdapterHandshake  <a class="header-action link-secondary" title="View sour
   <a class="header-action link-secondary" title="View source" href="https://github.com/mirrorpulse/adapter-sdk/blob/main/src/MirrorPulse.Adapter.Sdk/AdapterHandshake.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Checks Ready against the session mode supplied in the Worker launch arguments.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -316,6 +328,12 @@ Class AdapterHandshake  <a class="header-action link-secondary" title="View sour
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>The selected version, capabilities, root bindings or mode are invalid.</p>
+</dd>
+  </dl>
 
 
 

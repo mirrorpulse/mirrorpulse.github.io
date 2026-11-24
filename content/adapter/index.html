@@ -44,7 +44,7 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="cf-github-link nav-link" href="https://mirrorpulse.github.io/" aria-label="MirrorPulse home" title="MirrorPulse home"><span aria-hidden="true">←</span></a>
+          <a class="mp-home-link" href="https://mirrorpulse.github.io/" aria-label="Back to MirrorPulse home" title="Back to MirrorPulse home"><span aria-hidden="true">MirrorPulse</span></a>
           <a class="navbar-brand" href="index.html">
             <img id="logo" class="svg" src="logo.svg" alt="Adapter SDK">
             Adapter SDK
@@ -75,13 +75,82 @@
         <article data-uid="">
 <h1 id="how-to-build-an-adapter">How to build an Adapter</h1>
 
-<p>MirrorPulse Adapter SDK provides the public Worker API, wire protocol specification, and conformance tools for MirrorPulse Adapters.</p>
-<ul>
-<li>Start with the <a href="https://github.com/mirrorpulse/adapter-template">Adapter template</a>.</li>
-<li>Read the <a href="https://github.com/mirrorpulse/adapter-sdk/blob/main/spec/worker-v2.md">Worker protocol</a> for package and wire contracts.</li>
-<li>Use the sample Worker and conformance tool to validate an implementation.</li>
-</ul>
-<p>The 1.0 development baseline targets one declared root per Adapter deployment.</p>
+<p>An Adapter connects a storage backend to MirrorPulse. It ships as a signed
+<code>.mpadapter</code> containing a Windows Worker, its private runtime, and a description
+of the settings MirrorPulse should collect. The <strong>Adapter SDK</strong> provides the
+public .NET contract and conformance tools. The <strong>Adapter template</strong> is the
+starting repository for a new implementation.</p>
+<table>
+<thead>
+<tr>
+<th>Start here</th>
+<th>Use it to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/mirrorpulse/adapter-template">Adapter template</a></td>
+<td>Build a runnable example, then replace the sample storage implementation.</td>
+</tr>
+<tr>
+<td><a href="articles/getting-started.html">Getting started</a></td>
+<td>Follow the template from first build to installation and a working deployment.</td>
+</tr>
+<tr>
+<td><a href="articles/package-configuration.html">Package configuration</a></td>
+<td>Define a package, localize its form, bind credentials, and add optional authorization, health or update support.</td>
+</tr>
+<tr>
+<td><a href="articles/implementing-a-worker.html">Implement a Worker</a></td>
+<td>Implement the pipe lifecycle, file operations, consistency checks and recovery.</td>
+</tr>
+<tr>
+<td><a href="articles/test-and-publish.html">Test and publish an Adapter</a></td>
+<td>Qualify the Worker and the exact signed package on x64 and ARM64.</td>
+</tr>
+<tr>
+<td><a href="api/MirrorPulse.Adapter.Sdk.html">API reference</a></td>
+<td>Find the generated reference for the public SDK types.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="build-your-first-package">Build your first package</h2>
+<ol>
+<li>Create a repository from the <a href="https://github.com/mirrorpulse/adapter-template">Adapter template</a>.
+Install PowerShell 7 and the .NET SDK selected by the template's <code>global.json</code>.</li>
+<li>Run <code>Build-Adapter.cmd</code> on Windows or <code>./build-adapter.sh</code> on macOS or Linux.
+The launcher builds the x64 and ARM64 Windows payloads and signs a development
+package using a disposable test key. The command prints the package path
+under <code>artifacts/release</code>.</li>
+<li>Edit <code>eng/release-manifest.json</code> for package identity and the root definition.
+Edit <code>template/package/forms/config.xml</code>, <code>template/package/locales/en-US.json</code>
+and <code>template/package/assets/logo.png</code> for settings and presentation.</li>
+<li>Replace the sample Worker in <code>samples/MirrorPulse.Adapter.SampleWorker</code>.
+Start with a real listing and bounded read, then add write operations only
+where your backend can honor the requested preconditions.</li>
+<li>Test the signed package with an appropriate trust configuration in a
+disposable MirrorPulse environment. Create a deployment, save its
+configuration, and verify the Worker reads a file from its configured source.</li>
+</ol>
+<p>An SDK 1.0 package declares one root. A package can have several deployments,
+each with its own settings, credential references and Worker session. The Host
+owns the Windows sync root, configuration persistence and credentials. The
+Worker translates between the selected protocol and its storage backend.</p>
+<h2 id="work-on-the-sdk-itself">Work on the SDK itself</h2>
+<p>The public NuGet package is
+<a href="https://www.nuget.org/packages/MirrorPulse.Adapter.Sdk/1.0.0"><code>MirrorPulse.Adapter.Sdk</code> 1.0.0</a>.
+SDK releases also publish the <a href="https://github.com/mirrorpulse/adapter-sdk/releases/tag/sdk-v1.0.0">versioned specification and native conformance
+tools</a>.
+Use the <a href="https://github.com/mirrorpulse/adapter-sdk/blob/main/spec/worker-v2.md">Worker protocol</a> for wire field definitions or
+when implementing a Worker in another language.</p>
+<p>From this repository, use the .NET SDK selected in <a href="https://github.com/mirrorpulse/adapter-sdk/blob/main/global.json"><code>global.json</code></a>.</p>
+<pre><code class="lang-powershell">dotnet restore MirrorPulse.Adapter.sln --locked-mode
+dotnet build MirrorPulse.Adapter.sln -c Release --no-restore
+dotnet run --project tests/MirrorPulse.Adapter.ContractTests -c Release --no-build
+</code></pre>
+<p>The contract executable validates the SDK and launches the sample Worker.
+<a href="articles/nuget-publishing.html">SDK trusted publishing</a> describes how SDK maintainers
+verify and publish the NuGet package and its companion assets.</p>
 
 </article>
 

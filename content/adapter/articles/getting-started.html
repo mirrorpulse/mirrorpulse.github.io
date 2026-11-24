@@ -44,7 +44,7 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="cf-github-link nav-link" href="https://mirrorpulse.github.io/" aria-label="MirrorPulse home" title="MirrorPulse home"><span aria-hidden="true">←</span></a>
+          <a class="mp-home-link" href="https://mirrorpulse.github.io/" aria-label="Back to MirrorPulse home" title="Back to MirrorPulse home"><span aria-hidden="true">MirrorPulse</span></a>
           <a class="navbar-brand" href="../index.html">
             <img id="logo" class="svg" src="../logo.svg" alt="Adapter SDK">
             Adapter SDK
@@ -75,15 +75,95 @@
         <article data-uid="">
 <h1 id="getting-started">Getting started</h1>
 
-<p>A MirrorPulse Adapter runs as a Worker process. The public SDK provides the versioned protocol types and helps the Worker communicate with the MirrorPulse Host. One deployment describes one storage root.</p>
-<h2 id="build-the-sample-and-run-the-contract-checks">Build the sample and run the contract checks</h2>
-<p>From the SDK repository root, use the .NET SDK version in <code>global.json</code>.</p>
+<p>Build the template first so you have a known working package. Then replace its
+in-memory backend one operation at a time and try the resulting Worker in
+MirrorPulse.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>PowerShell 7 and the .NET SDK selected in the template's <code>global.json</code>.</li>
+<li>A Windows x64 or ARM64 machine to run a matching Worker. The shell launcher
+on macOS or Linux can cross-build both Windows payloads.</li>
+<li>A disposable MirrorPulse setup and a storage fixture you control for Host
+and provider tests.</li>
+</ul>
+<h2 id="1-build-the-template">1. Build the template</h2>
+<p>Create a repository from the <a href="https://github.com/mirrorpulse/adapter-template">Adapter template</a>
+and clone your new repository. Run <code>Build-Adapter.cmd</code> on Windows or
+<code>./build-adapter.sh</code> on Linux or macOS. From PowerShell, you can specify a
+development version.</p>
+<pre><code class="lang-powershell">pwsh ./Build-Adapter.ps1 -Version 1.0.0-preview.1
+</code></pre>
+<p>The launcher prints the path of the <code>.mpadapter</code> below <code>artifacts/release</code>.
+It builds the same package for both Windows architectures and uses a
+disposable test key. Only a Host configured to trust that signer can install it.
+The signed package and its companion signature should stay together.</p>
+<h2 id="2-give-the-package-its-own-identity-and-settings">2. Give the package its own identity and settings</h2>
+<table>
+<thead>
+<tr>
+<th>File in the template</th>
+<th>What to change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eng/release-manifest.json</code></td>
+<td>Set the canonical Adapter ID, publisher, root key, and protocol and package metadata. Keep the Adapter ID and root key stable after publication.</td>
+</tr>
+<tr>
+<td><code>template/package/forms/config.xml</code></td>
+<td>Declare the per-deployment connection settings the Host collects and mark them required or optional.</td>
+</tr>
+<tr>
+<td><code>template/package/locales/en-US.json</code></td>
+<td>Define the English title, description, field labels, option labels and image text.</td>
+</tr>
+<tr>
+<td><code>template/package/assets/logo.png</code></td>
+<td>Supply your own local logo and update the manifest path if it changes.</td>
+</tr>
+<tr>
+<td><code>samples/MirrorPulse.Adapter.SampleWorker/</code></td>
+<td>Replace the sample’s in-memory storage implementation. Retain the SDK-based process and frame handling.</td>
+</tr>
+</tbody>
+</table>
+<p>Start with a plain endpoint field and a password field if the backend requires
+credentials. Add localized help explaining the expected endpoint format. The
+Host presents the form and stores its values, including credentials. Read
+normal settings and opaque credential references when the Host starts the Worker.
+See <a href="package-configuration.html">Package configuration</a> for complete examples.</p>
+<h2 id="3-add-the-first-storage-operations">3. Add the first storage operations</h2>
+<p>Use a small fixture you control. Implement listing and stat first. Follow with
+a bounded range read so MirrorPulse can read the content of a listed file. Return
+the selected root key on every operation, keep directory cursors scoped to
+their directory, and surface a revision mismatch as a conflict. With writes
+enabled, exercise retries using the original operation ID and verify what
+happens after the connection or Worker stops. Follow
+<a href="implementing-a-worker.html">Implement a Worker</a> for the message sequence.</p>
+<h2 id="4-try-a-signed-package-in-mirrorpulse">4. Try a signed package in MirrorPulse</h2>
+<ol>
+<li>Build the package again and install it using <strong>Adapter management</strong>, or run
+<code>MirrorPulse adapter install C:/path/to/your-adapter.mpadapter</code> from an edition
+that trusts your test signer.</li>
+<li>Create a deployment for the installed version. Enter the required form
+values, save them, then enable the deployment if it is disabled.</li>
+<li>Verify that the Host starts the Worker and the root shows only the
+configured fixture. Read a small file through MirrorPulse and compare the
+bytes with the source.</li>
+<li>If the Adapter supports writes, verify one change through MirrorPulse and
+check the backend. Stop and reopen the Host. The deployment should keep
+its configuration, and reconnecting should preserve its scope.</li>
+</ol>
+<p>Verify the actual published package separately from source or test-key
+packages. See <a href="test-and-publish.html">Test and publish an Adapter</a>.</p>
+<h2 id="run-the-sdk-sample-independently">Run the SDK sample independently</h2>
+<p>If you cloned the SDK repository, run the following from its root. Its
+in-memory Worker and contract executable demonstrate the process protocol.</p>
 <pre><code class="lang-powershell">dotnet restore MirrorPulse.Adapter.sln --locked-mode
 dotnet build MirrorPulse.Adapter.sln -c Release --no-restore
 dotnet run --project tests/MirrorPulse.Adapter.ContractTests -c Release --no-build
 </code></pre>
-<p>The contract test executable exercises the wire contracts and launches the sample memory Worker. The memory Worker demonstrates the process boundary. A production Worker must declare only the capabilities its storage backend supports.</p>
-<p>Use the <a href="https://github.com/mirrorpulse/adapter-template">Adapter template</a> when starting an independent Adapter. Keep runtime data and credentials under the Host's ownership. Build and sign a package with the template's release tooling before testing installation in MirrorPulse.</p>
 
 </article>
 

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Implement a Worker | MirrorPulse Adapter SDK documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Implement a Worker | MirrorPulse Adapter SDK documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/mirrorpulse/adapter-sdk/blob/main/docs/implementing-a-worker.md#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+        <script type="module" src="../public/main.js"></script>
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="mp-home-link" href="https://mirrorpulse.github.io/" aria-label="Back to MirrorPulse home" title="Back to MirrorPulse home"><span aria-hidden="true">MirrorPulse</span></a>
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Adapter SDK">
+            Adapter SDK
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="implement-a-worker">Implement a Worker</h1>
+
+<p>The Worker runs locally as a separate process. It keeps backend-specific
+connection logic behind the SDK types. MirrorPulse owns the deployment
+lifetime, settings, credential store and the Windows Cloud Files session.
+Use the <a href="https://github.com/mirrorpulse/adapter-sdk/blob/sdk-v1.0.0/spec/worker-v2.md">Worker protocol</a>
+for the precise field, frame size and binary layout rules.</p>
+<h2 id="start-and-stop-a-session">Start and stop a session</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Worker responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Launch</td>
+<td>Parse <code>AdapterWorkerProcessArguments</code>, connect with <code>AdapterNamedPipeClient</code>, and create an <code>AdapterControlChannel</code> scoped to the instance and session.</td>
+</tr>
+<tr>
+<td>Hello</td>
+<td>Send a bootstrap Hello with the supported versions and offered capabilities. Keep its request ID for the matching response.</td>
+</tr>
+<tr>
+<td>Ready</td>
+<td>Check the matching response and run <code>AdapterHandshake.ValidateReady</code>. Call <code>SelectProtocol</code> only after validation. Use only the selected capabilities.</td>
+</tr>
+<tr>
+<td>Bind</td>
+<td>Resolve the authorized root and its settings. For a password field, use the reference in <code>Ready.CredentialBindings</code> on the established channel. A disabled root must not connect to storage.</td>
+</tr>
+<tr>
+<td>Connected</td>
+<td>Send the event with a fresh request ID when the normal storage session is ready.</td>
+</tr>
+<tr>
+<td>Stop or disconnect</td>
+<td>Release streams and temporary transfer leases. Use a new session for the next launch.</td>
+</tr>
+</tbody>
+</table>
+<p>Keep a single frame reader and serialize complete writes. In-flight upload
+handling must still accept a matching cancellation command. Credentials and
+raw backend errors should stay out of responses and ordinary logs.
+<a href="package-configuration.html#configuration-only-worker-startup">Package configuration</a>
+describes the separate startup mode for authorization callbacks before a root exists.</p>
+<h2 id="list-stat-and-read-files">List, stat and read files</h2>
+<p>Use <code>AdapterFileAddress</code> for root-qualified addresses. Validate the authorized
+root key and relative path before accessing the backend. The empty path
+identifies the root. Map the address to the provider's native namespace
+without permitting aliases or paths that leave the configured root.</p>
+<ul>
+<li><strong>List</strong> returns at most the requested page size and binds any continuation
+cursor to the root and parent directory. Every incomplete page carries a
+next cursor. Specify how your backend behaves when the directory changes
+while paging.</li>
+<li><strong>Stat</strong> returns the current revision or the protocol's absent result.
+Decide whether a revision represents a server generation, a content hash,
+or a weaker metadata observation. Document the distinction.</li>
+<li><strong>ReadRange</strong> checks a supplied revision and returns one bounded range. Send
+the matching <code>ReadRangeReady</code> followed by the final v2 binary chunk. Keep
+the declared length, offset, session, stream and root consistent.</li>
+</ul>
+<p>For providers that send changes, keep change-feed cursors separate from
+directory-list cursors. State their scope, retention and recovery behavior.
+An expired cursor needs an explicit invalidation or reconciliation path
+consistent with the negotiated feed.</p>
+<h2 id="apply-a-mutation-and-recover-a-lost-reply">Apply a mutation and recover a lost reply</h2>
+<p>A request ID identifies one transport exchange. A stable operation ID identifies
+the mutation across retries. Retain the source and destination addresses,
+conditions, and effective content identity in its binding. A repeated ID with
+changed inputs is an error. An accepted retry should recover the original
+receipt or report that the outcome is unknown. A fresh request ID alone gives
+no evidence that a prior operation failed.</p>
+<p>For a conditional upload, validate the operation and its preconditions, receive
+the declared bounded stream into a transfer lease, then verify the bytes before
+publication. Validate the offset and checksum of each chunk. Use the backend's
+conditional operation when available and report unsupported conditions before
+changing storage. The SDK's frame, address and lease types do not give a storage
+backend compare-and-swap or durable replay by themselves.</p>
+<p>A cancellation during receive releases the lease before acknowledging
+cancellation. If the remote mutation already committed or its response was
+lost, use the stable operation binding to determine recovery. Never adopt a
+response from a previous Worker session.</p>
+<h2 id="add-optional-features-deliberately">Add optional features deliberately</h2>
+<p>Offer <a href="package-configuration.html#authorization-health-and-updates">structured health, update discovery or authorization callbacks</a>
+if the Worker actually implements them. Treat the original-directory
+<a href="original-directory-admission-wire.html">admission</a>,
+<a href="original-directory-retirement-wire.html">retirement</a> and
+<a href="atomic-original-directory-deletion.html">atomic deletion</a> protocols as separate
+capabilities. They require native history, exclusion and durable effect evidence
+in addition to the SDK wire validation.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/mirrorpulse/adapter-sdk/blob/main/docs/implementing-a-worker.md#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © MirrorPulse Team. Licensed under Apache-2.0.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

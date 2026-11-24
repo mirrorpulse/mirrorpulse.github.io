@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "project": "MirrorPulse Adapter SDK",
-  "sourceCommit": "37212939bdd1ab3158d5454802575844d057b86b",
-  "generatedAtUtc": "2026-11-24T00:57:07.5879436Z",
+  "sourceCommit": "9ebf512a225ab21fa0288d211d76a17a67eb7672",
+  "generatedAtUtc": "2026-11-24T13:02:50.5317583Z",
   "generator": {
     "name": "DocFX",
     "version": "2.81.0"
@@ -18,13 +18,13 @@
     },
     {
       "path": "index.html",
-      "bytes": 4700,
-      "sha256": "A4EBCB7D989465DF70DBC226411D273B81A4E103F79DAA6853390AF7EE16201C"
+      "bytes": 8535,
+      "sha256": "C3CFB0FA658DED0B1397D168E5B011AA0466AC4EACBEA9F437D5A5E6684150FD"
     },
     {
       "path": "index.json",
-      "bytes": 196593,
-      "sha256": "B6F15C005CB32C08D9BB0C08D8C0A7F8519F795D36D73B34656124EA0DE25B9D"
+      "bytes": 238316,
+      "sha256": "980F514D9F1B298310BC372981C1A2A380745BC6D3A0FC3EFF16CBA3CD318A10"
     },
     {
       "path": "logo.svg",
@@ -33,13 +33,13 @@
     },
     {
       "path": "toc.html",
-      "bytes": 24136,
-      "sha256": "07BA3D2355F3AFE54CCD195141555F14AC986A54A5364DC8A9CC7DFE2B1E5430"
+      "bytes": 24543,
+      "sha256": "2E960E788228F9271EF782BD5D4DC5E8165764E27B75B3F72F91F81C058D6127"
     },
     {
       "path": "toc.json",
-      "bytes": 21806,
-      "sha256": "5B0B6D1081CDF75CDF214B063FA49B475B5008FEE5546827C59166157542B3B0"
+      "bytes": 22055,
+      "sha256": "EB609EFDF86B50729DF33786F8EEF723C39C26CDABA0C4B2B305B6E80FA13E2B"
     },
     {
       "path": "xrefmap.yml",
@@ -48,408 +48,408 @@
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterAdmittedDirectoryOperation.html",
-      "bytes": 23518,
-      "sha256": "65B10BD89B046B770CE706D4565AE465347DB93F1350DED1A738EBB0DC375745"
+      "bytes": 23763,
+      "sha256": "FE2FE37311E5ED6BC961442F24508D021E61EE3D898048513C295EFE2D0C2577"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterAtomicDirectoryDeletedOriginal.html",
-      "bytes": 21145,
-      "sha256": "0CECDCABC4C4A999349A9B9BEE8A3C17CBADB58BDF5E62521FDAB8349879AFBB"
+      "bytes": 21427,
+      "sha256": "4B6BFD24E8FF62018A7CFBA42B61312507BB6E3266FE268EB22A6DCD71B8BA94"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterAtomicDirectoryDeletionDispatcher.html",
-      "bytes": 9289,
-      "sha256": "3C9E0F643E681E4E7C7BEF6C0B55913042378E18D94EFD88DEE11624DD7A9792"
+      "bytes": 9302,
+      "sha256": "621460F1E684543379C0A7F958CEE034CD1AA2D8237A6F1D4BDE098FBB04649A"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterAtomicDirectoryDeletionReceipt.html",
-      "bytes": 33876,
-      "sha256": "AEAABDB8058DF58B3C75AF750D20C0F098E1089C2F271628CD8285E447197274"
+      "bytes": 34235,
+      "sha256": "460A2E10129737C50ABC42F7EF58411B79DCF780EDE957E6A5699C2A39EAB7D4"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterAtomicDirectoryDeletionRequest.html",
-      "bytes": 26469,
-      "sha256": "9E4BC3C4FD3651BF4876A28A39BBF19931BB510410BCC102856B786621A770F7"
+      "bytes": 26753,
+      "sha256": "EDCF427282D5F812BC7B41C6E31A13A66009474E8BDC4E25A8838178220E549B"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterAtomicDirectoryDeletionWire.html",
-      "bytes": 13295,
-      "sha256": "725CEA2AF9B548EB0C708A915931093B930DD6052F3A94C8FF5338525B73017B"
+      "bytes": 13540,
+      "sha256": "2EE11C2AB25A3DCDD6565181FD3EA21D70590E45CFF8EB966E1CE4473C3E21ED"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterBinaryChunk.html",
-      "bytes": 25612,
-      "sha256": "BE8257C2B3BDB1AD3972119C14BD87E0A43BB2326180894A89911BDFF2737892"
+      "bytes": 25625,
+      "sha256": "51AB8E43A517B643240F30A61068117CC5C51862B8851E80AFE43B6E8E8B1313"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterBinaryChunkCodec.html",
-      "bytes": 9875,
-      "sha256": "C4CCCC52D6054F105373A83E6AAED203840C947D4EAC39443C95864CF47DCB2F"
+      "bytes": 10050,
+      "sha256": "891D69B7D5DAAA6557026DBB91314AA1093DD22A69B010DFB4B8960DD6FA0594"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterBinaryChunkV2Codec.html",
-      "bytes": 9937,
-      "sha256": "437C25C1E2370647C64769131B71A22B2E2889743AEF73BE49195FB9799D8373"
+      "bytes": 10136,
+      "sha256": "4CF98A4925A42961D61E72AAA9FC099944FBF9E97CD037D5CDEC5AAF6DBC3D5D"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterConfigurationCallbackContract.html",
-      "bytes": 14814,
-      "sha256": "AAE51046F771663208D429E32B99121B6BCD99E942ED61C098F970FF2793D514"
+      "bytes": 15304,
+      "sha256": "2F01961FD3A06A7B2C126519997B609BD900FCEDC8E54DD3E89A7BFD154376C2"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterConfigurationCallbackRequest.html",
-      "bytes": 20828,
-      "sha256": "A088768FF137C07FF19E83B306BD9719E65555EEAA6EAD15C0CBFBD53818B329"
+      "bytes": 21152,
+      "sha256": "59118247F8C27A9366B3FD5D561314C465243F71FA6DBD4084200BA1E0E7896D"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterConfigurationCallbackResult.html",
-      "bytes": 25990,
-      "sha256": "DFE2EE3C6C4ADD8D9BD6DB55983AA6660D1C5CF0329D59CEE6F649C42687EC1D"
+      "bytes": 26319,
+      "sha256": "2594FA3D67BB601A91680714EEF058D4A22EBD14B57C29C399C6782331727E21"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterConfigurationCallbackState.html",
-      "bytes": 5654,
-      "sha256": "2DFE00F863E21C2012ED48115EA3813E507199D9D4D5CF8E2F3F0F08F3CF875D"
+      "bytes": 5667,
+      "sha256": "81643E895B1BE721FAEBB8A821F89054049A947609F28B0ADBEF1C748C6C7BD0"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterConfigurationForm.html",
-      "bytes": 9995,
-      "sha256": "335E9D22CA2BB5E75A8904C125BA6E88247830C3756179026C564D4D36622E7F"
+      "bytes": 10266,
+      "sha256": "1FD09C350A84FC3372899322F3D32493CC44F8BBF0A64C4D5C552B2D35760EE0"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterConfigurationTranslations.html",
-      "bytes": 9665,
-      "sha256": "F590304F0F36E67A729E4D66F6C2289151124F6F674EE63A5D5A21D771F1CCC5"
+      "bytes": 9914,
+      "sha256": "78748F0E914928BF752DE2B5CA64D7A602FB6718719DC6F3D067E58F536DBA4A"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterConfigurationWrite.html",
-      "bytes": 10270,
-      "sha256": "509828E30EEF47BD55E94C1E5F37092C22E613AC32C6E357B20F0A04CB325503"
+      "bytes": 10602,
+      "sha256": "E6EA0C7093D9E2F8E729B7D7934C91302688751C207EBA6B0F9B9DF6679865EF"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterControlChannel.html",
-      "bytes": 19130,
-      "sha256": "E85277767EDB15CC43C28148A29B0A9AF6555F9C1618B3ECB6E3F2E83E4C96EC"
+      "bytes": 21789,
+      "sha256": "86D86F4DCCBCC061B72445F3CC087A664E7A317D4B9E47060EE1B251DA06139B"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterControlFrame.html",
-      "bytes": 24654,
-      "sha256": "648DACE711EB8659DA84E96BAAA99A4143D2542C032D06835D29AB10F49E753D"
+      "bytes": 24950,
+      "sha256": "7EE8D0D6A32E63F195C3E4654EDC3A0B370385FE1E20803C32F1ADF624BBF0EF"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterCreateDirectoryRequest.html",
-      "bytes": 21338,
-      "sha256": "F834F0CC52E2DB5B9AEB0CE9AFD8D2B7EF1D2D341B2F14BBD6D49D0D2D516D0C"
+      "bytes": 21649,
+      "sha256": "5928A0D42CEE99EA10D98BA29ACFD78F2798C567C5B7CE033EC9D7562F238F87"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterDeploymentContract.html",
-      "bytes": 16172,
-      "sha256": "A295A9F1EAE7D311D0FD0E6EB71B954C1160A0EE8C7DD58C96F470F6EA8CFE3A"
+      "bytes": 18100,
+      "sha256": "0D700D97489B11E781B390142063DDF3F3E0B928ECB2A71514ECAD7162A974C3"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterDirectoryAdmission.html",
-      "bytes": 27269,
-      "sha256": "99FEB362ADC3163A62AC49A430AA82935F468028CB5A29AC8219E9728C91EFCD"
+      "bytes": 27625,
+      "sha256": "32C8C758EC66583196CD7E7E30A513A94E6F15931A898FDDA16B8D120B1242B2"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterDirectoryAdmissionRequest.html",
-      "bytes": 26065,
-      "sha256": "2AC858314E1E499314994DE607042BF49BB63ABC9F4AF1C5E15AD2067D9D7DEE"
+      "bytes": 26403,
+      "sha256": "07AB9DF0B3D20CC15C826C00723E5261728C20C5768F09CC270E2A7ABFEA4EBC"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterDirectoryChildRequirement.html",
-      "bytes": 22228,
-      "sha256": "C7BF2511135AEEC1A9CB631686838F33F56C6D6E59D4920AE669021B077981AA"
+      "bytes": 22552,
+      "sha256": "0F95D874CAD608A5024EB4B7F8DE3FBC2F07149B64FD07D4EF1CC0EA93CDC280"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterDirectoryEffects.html",
-      "bytes": 18491,
-      "sha256": "062F46B427A977869F1E8961C252905273984CB9A6506414317585D4B971CD2C"
+      "bytes": 18958,
+      "sha256": "4231C0ADF46BD7E0C07677670513E7D3A6C08F7D0C4E885AA854A6D81604F7D0"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterDirectoryGenerationWitness.html",
-      "bytes": 31281,
-      "sha256": "AE154CF2FFB644BEF270DC684F4810E7189A20D5240300F66D5F72E976B0083F"
+      "bytes": 31613,
+      "sha256": "4932567EC95D6D136266F6CA156BF0E5F0535D37AA208D5D492312499D040B13"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterDirectoryRetirementEvidence.html",
-      "bytes": 30214,
-      "sha256": "33FA86557B8BC5352164EE36318A1C2EB589EA0AE7D823A635E47EA6778DB96F"
+      "bytes": 31456,
+      "sha256": "CE1A41E435C2EBDF889F03C9FC65394CF7BD41D7B7F1C81395603B8AA6D8EB20"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterDirectoryRetirementRequest.html",
-      "bytes": 32281,
-      "sha256": "7FC55569C34D2F139170DA3B1E583418FBC4E07D46EFC839505C1BA6D80702D1"
+      "bytes": 33726,
+      "sha256": "047A780B128CD969902D8F4CA050546B8D8E8C942DEF7F9AB2891ECE11D45E74"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterDirectoryRetirementWire.html",
-      "bytes": 13155,
-      "sha256": "7A6B1E3FD8F2FDE0755B4A6330B609265600230B84270FAB4B8C74DED08DB38C"
+      "bytes": 13380,
+      "sha256": "B4D95F75D35AB0D98E157D1958DEEE00B2629B50DE662F24DC7EDF94252475F1"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterFileAddress.html",
-      "bytes": 18405,
-      "sha256": "41152FAC1F9F5B35771133F1FD67C4336D33E10CA9A03A0FDCBCF782ADC90120"
+      "bytes": 19224,
+      "sha256": "A7F5FDB2A6DF7D9A5D8B87D3EB3ABC99C5622EAD3AEE995A15634A4111E020B8"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterFormCallback.html",
-      "bytes": 23753,
-      "sha256": "4C6D624ACF9182E9B8199CB3967418AA41D9E6F13EAC887F07F4E58E13826D86"
+      "bytes": 23766,
+      "sha256": "624380AF6BD3C80F65D885EFF2543CE96FD78E7B8C4E59DD68FB1A9D2BD623E1"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterFormContent.html",
-      "bytes": 21888,
-      "sha256": "A24EBFB0761A7B4A36C7F8BBFBB1AC434E05E36014AE24B352C1CA94E6689038"
+      "bytes": 21901,
+      "sha256": "3F5AC34270D59BAE33532C2304303E3E0FB0FA6A4A1983D1FCEE36A7FF7D0790"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterFormContentKind.html",
-      "bytes": 5207,
-      "sha256": "9855EFF4C8D06692243B7D75882AF6C8900F48A6F28046AF8CA6FD332D009F68"
+      "bytes": 5220,
+      "sha256": "5CD46C18D3EE149799A21356ADFFC0AF6D5D77FC10AFAC15FC7961A6CAD3AD65"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterFormControl.html",
-      "bytes": 18301,
-      "sha256": "0C2B9C207DBE3C7A3B066CE09CC9B3C91749BE147855D116AA2D21DF4AA47B15"
+      "bytes": 18314,
+      "sha256": "0BDC5577A2736E7141ADE427D76C70F3DD8A52563389DB2F84868B3E3ED83790"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterFormField.html",
-      "bytes": 27707,
-      "sha256": "98AFE3EF268B46B6B640ADFF097E145CAFDE932F17E19C377228090D140EB62D"
+      "bytes": 27720,
+      "sha256": "C81C5D706E524DF12870E101564E52924058A15AA8D94EA2E867CB1145C951C9"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterFormFieldKind.html",
-      "bytes": 5534,
-      "sha256": "7897E0BD720626ECA485DB73326D33E9B5101AB32198702431D3F6623E76578D"
+      "bytes": 5547,
+      "sha256": "24A571C9C8385CFCE28677A798EE0C91C5272BECC9149512EB7897612E0359AD"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterFormImage.html",
-      "bytes": 21431,
-      "sha256": "799AAE59744003BEC7CAF76AD4A454182CF5BA231F7BD1D760364CD3FF0CD44B"
+      "bytes": 21444,
+      "sha256": "934D9AB48C28D4F91F6C789CFE98D13BEF1F01E93CCCFCE0CBEB8349ED410D7C"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterFormOption.html",
-      "bytes": 17684,
-      "sha256": "7E2FDD803F003F31D609D72D9FB075A04705F6D366DC7003BEDD90BD0B3F4A47"
+      "bytes": 17697,
+      "sha256": "E59FA469BA37D3B6AF6C8A4596B1471BAC293F73179A37430D3EB490AD093D13"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterHandshake.html",
-      "bytes": 13209,
-      "sha256": "9514D681BDDD5C49ADED647C78A70B26C918480A5AA60E4A03884BA95B6D1A03"
+      "bytes": 14707,
+      "sha256": "05678B563CE96E451F7CB9E2C9FF85DBB88EE61CECC4322EC60541F89D83A528"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterHealthIssue.html",
-      "bytes": 18043,
-      "sha256": "AE13B5FBEE726A63EDBC5E75E40730D0F1F1450BA73CAE2ABA8A7760C5B3CA1F"
+      "bytes": 18399,
+      "sha256": "9D6234FE1D6926D65E2D6FAD1BADE2D13355244EA46E32A484A853488BBE3285"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterHealthReason.html",
-      "bytes": 5818,
-      "sha256": "F17BB6FF17BCF1CA66D67C93B9708E5C2FAB9B3F715C66EEC1B1DF6FECE3C978"
+      "bytes": 5831,
+      "sha256": "581AE780030DEBF1366AA02B767E0FA0E845EC31E4E1E0905D9793C24E6672DB"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterHealthReport.html",
-      "bytes": 17447,
-      "sha256": "717D510AE17AB38F813869C31CD303B6A41A071F6576B7C6396720268BF11B32"
+      "bytes": 17797,
+      "sha256": "9F5974550F72A157B78A5CF84673FA02EEEB204B393A80C2F37BE0A7E80EC34C"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterHello.html",
-      "bytes": 18238,
-      "sha256": "A0D741CE62E47A5F93CE2428C7C59C6A18B68B13C338F095B634640419540016"
+      "bytes": 18516,
+      "sha256": "493FDBCCB3EE1F3D1F9D6C5C4144246A62B22DCE9217E47DFE4EEAACF2EF7C2E"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterMutationPreconditions.html",
-      "bytes": 18813,
-      "sha256": "041974A5D961CB8CDA20B7F8AD7E9FCC8CED2182F14100385AF0651AADC4B07B"
+      "bytes": 19091,
+      "sha256": "394361E3938ED743C70B7D25751EE8C13C58921EA35530573985A927B4FA6C62"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterNamedPipeClient.html",
-      "bytes": 12539,
-      "sha256": "815A022577DA120541FF9D5E56EF2B0BF9B3140AC8DD1013C08FE4FE35D05BAA"
+      "bytes": 14707,
+      "sha256": "1FCAF602480A0F0324188EDA42207F9DE2056ED1BB54AD2F779F8E1EFC966332"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterNegotiation.html",
-      "bytes": 18766,
-      "sha256": "FC571DAD3D5A0210AD108B43A93071A55FB4A998020C5DB8CEC0F0745B964EC6"
+      "bytes": 18779,
+      "sha256": "FB380F3534C16D0342730DE94F543EBC569F7CE49C0560A1ACD696D6A9A99443"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterOperationRequest.html",
-      "bytes": 25355,
-      "sha256": "275E12566BFC63E716B597954E7F7A1AAF52AA963A6BCF88A7975D6CB211F0E7"
+      "bytes": 26288,
+      "sha256": "A29A36A34FB91903C4467C6F2FB5E0F5E6E4C42F526B6F09C1702272E46F8510"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterOperationResult.html",
-      "bytes": 19396,
-      "sha256": "B04B2F9340CB3DFF0C6D2167C48DE8CA85C7BFBE71990043D4854082A601F9EB"
+      "bytes": 19722,
+      "sha256": "626FB87A522110ADBD69F582FF042D228D03CACB0CBCF49E7E4C2F1FA489C780"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterOriginalChildEffectRequest.html",
-      "bytes": 39338,
-      "sha256": "FE923C50A776E4210FDC3AD563C498481792B8ECB2F5110D2DB721D7B34E6F27"
+      "bytes": 39674,
+      "sha256": "BB967051B32076AA825DE50CBA2CC97B90686140859D9469BBCE326DD2D67A14"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterOriginalDirectoryDispatcher.html",
-      "bytes": 9217,
-      "sha256": "ABA40A876B09A9939A86B6AC85E20619E21E273944BDE15466678A4F9C054437"
+      "bytes": 9460,
+      "sha256": "01BF4C82BBC13C7FC1D6FF1EFBCDF2C5D0952BFFFFD78CB80B09448ADD0B8726"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterOriginalDirectoryOperation.html",
-      "bytes": 19416,
-      "sha256": "CC66EA57F0B2FCCA102A62952484156570F5325373FE4C06ACC351ECAD78E3BD"
+      "bytes": 19688,
+      "sha256": "065FB671AF0089CFB4513E075606E714491AB806E4C8B1E4022579C4A61750A7"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterOriginalDirectoryWire.html",
-      "bytes": 19891,
-      "sha256": "47245B999276EF46F69F98299D201CF6FC408A000A3F986C400585042846634D"
+      "bytes": 20144,
+      "sha256": "6C2C9FBCEAC676FDA4BCBDD59EEFD9786919C5051EB380747BF4AC504236B76C"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterOriginalParentPredecessor.html",
-      "bytes": 19866,
-      "sha256": "3DD9982EB01ABFC6990093AA6A54735E3963B663D5570BDAFD5B4BB91D82654B"
+      "bytes": 20159,
+      "sha256": "698F8521242387FB5800653BC8AE2B51B3A928A447215137BE0BCA0DD8529C65"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterOwnedChildEffectReceipt.html",
-      "bytes": 34867,
-      "sha256": "E719E223A44EF96596C373B1B1322D8E701EB9A1849E295594D75FC8E4A7CF62"
+      "bytes": 35271,
+      "sha256": "BDB28F9B05E4BCB4E90CF95E1FA88FC2A30D9AA4DDA1B1788AB3E0929DAE8B10"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterOwnedParentTransition.html",
-      "bytes": 24297,
-      "sha256": "CB8761C018C1050D421F986D6C9F45ED6E10FCBDFF8085E4C2A2C62434EF3445"
+      "bytes": 24666,
+      "sha256": "F690DC4CF3E5BA1601924509583191CB094CB09A62C55B0685078E0AA81F9E6D"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterPackageIdentity.html",
-      "bytes": 18135,
-      "sha256": "322AA464EF5AF884ECCB9E7A0BE2E7F4745FBE9FFC0FD5F95F1F6288F30304BF"
+      "bytes": 18419,
+      "sha256": "1F0FD09B03C63FAB7ED77E561A181D0E5FD5653D909C59458DEFD9BB8D38EDD0"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterPackageMetadata.html",
-      "bytes": 29120,
-      "sha256": "58696AAA3660A9BEB3942815FDE66F3793CD61713D2B2C097D747E4FF6EAE19C"
+      "bytes": 29563,
+      "sha256": "28660FE69146CB9466042DA163922C2D259706A51EEA8C24C2AECD32DBF773C9"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterPackagePath.html",
-      "bytes": 7550,
-      "sha256": "62E17E2B5CC38392403520626096076483F78D0C3CFDABE5C9B94D530C09FC3D"
+      "bytes": 7769,
+      "sha256": "B30FD0F4448C375345A654DAEA59FB29A30175A2DA0E507222849C9B47F81468"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterPackageUpdateOffer.html",
-      "bytes": 19684,
-      "sha256": "23F19C48FEB96795218F19556AECD86360EBD393E4138CF39EE807E1B5AB40A7"
+      "bytes": 19953,
+      "sha256": "8EA1F47565B11B64098598600E5619F087739A35C465316E151A26A38E785F1D"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterPackageUpdateResult.html",
-      "bytes": 17527,
-      "sha256": "A686F8F338099EB3FA5AAAAEDA3D8305A0712365D097926325CF71905B0A662D"
+      "bytes": 17889,
+      "sha256": "97AFD6C93187F5AFB55C48DA1FBFC4D44E772D21BDD3CE5335B1D2607B1DC603"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterPipeFrameLimits.html",
-      "bytes": 8038,
-      "sha256": "8E75B2E10A3EAE72FFD18C0D0AF7CB6CD7B739A1216D056D495C5DC59543B844"
+      "bytes": 8245,
+      "sha256": "97F81BC4273FA7B985067DAB43A43C8AD9FF4868855A0DF24F0B3C3C269DA91C"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterProtocolJson.html",
-      "bytes": 13240,
-      "sha256": "2297547296AA1868434DF65F11BE0AA41E2A91BFB66A82136F0F88E92148D8C9"
+      "bytes": 13947,
+      "sha256": "CCE2A17DB9D46D381E24A45BF5993F06E60FA85A639F264B8C3B26BEE94CE593"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterReadRequest.html",
-      "bytes": 21608,
-      "sha256": "AF5E5BE8E1A99B04A435A7BF35AC542D830C249393A8C438CA40EEEEB93A80EB"
+      "bytes": 21922,
+      "sha256": "76D50AD73B15F99BD47FB7C548853D90061FDF71718AAE0FB9EE9A838BCAC4E7"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterReady.html",
-      "bytes": 24808,
-      "sha256": "EB26FC11E40489619C4C646AB94F415F088E50D3A07AAE1C95B342C79B69D0DA"
+      "bytes": 25983,
+      "sha256": "5792FCB10BEFE12AC294D6F40A6EB8ACD1B84ED572DDB348D0AD9A9DC2D8A7C3"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterRemoteChange.html",
-      "bytes": 34044,
-      "sha256": "442A86836A6C63023E8C51CFEDEFD135B15C6F31E571B223C7F0972FC1E873BE"
+      "bytes": 34346,
+      "sha256": "73AAE4010EBFF2F09D4689C62A4D18C1A56FC33C709B81B4D3ED690A3F79627D"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterRemoteChangeBatch.html",
-      "bytes": 22888,
-      "sha256": "DEA930B5D62637C3C42040973F788D03AFE3B367F9F194F56A8CB39255226B7B"
+      "bytes": 23852,
+      "sha256": "EF2E90D742DA7453A708262FF440F7B54905DAE041F82044B9BE0DE18D4B03AF"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterRemoteChangeKind.html",
-      "bytes": 5574,
-      "sha256": "5E3C28A8C9C4CC711E4211B0B31398D435280D77099B107F3580F783C44B97C4"
+      "bytes": 5587,
+      "sha256": "FC808DC38FC4FEDF45AE9278FE6D80984DAFC5BFD6199F48BBCBC294BAC3BD8F"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterRemoteItemKind.html",
-      "bytes": 5184,
-      "sha256": "8285F972E2B1F97BC7DA4796836A66324C3D99C16F8AD5DD509665985A85429E"
+      "bytes": 5197,
+      "sha256": "4EE2E98D8EFE3D7748F7DA24A0C7695208D7C6E29013F1864E9518E523D656C3"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterRemoteMetadata.html",
-      "bytes": 23125,
-      "sha256": "4877A48A4555C45F0833DA57A2D54CCE1D98E8F4BA722D5004C52F416C2620F3"
+      "bytes": 23138,
+      "sha256": "F394BD872AB328D41F084CCEA52BC03913337A4BCC93F128887D56800D3EDCA2"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterRootBinding.html",
-      "bytes": 20167,
-      "sha256": "2CDC715E9203706F1B3D2D6533E96EB0237605F8D9C3C6FDB9FC23D278F834CD"
+      "bytes": 21028,
+      "sha256": "71BDF5FB28B46731DCC60E3999BE3573D725F7D96590FE0314F3015DEA5D5EFF"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterStreamBinding.html",
-      "bytes": 10386,
-      "sha256": "5EE5531938EED642909852AEDB6C2581D121B72491D612242CECEB4CF572495C"
+      "bytes": 10563,
+      "sha256": "65C2DE9FCE15DA7DA39103930DC68489E86DBA1B394D4FD9622A96A5F46582CB"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterTransferLease.html",
-      "bytes": 12345,
-      "sha256": "C10E92C7A3FC4D86A82B74026D01A20E04AB8A35A5536F8E50D8FB26C431D50C"
+      "bytes": 13419,
+      "sha256": "2C510B7191C5E7DDE02483C23427298238EAC3C6D2F097C93D104CB8A8E4C20D"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterVersionRange.html",
-      "bytes": 17732,
-      "sha256": "C62E6A23A2D3CEEC08291F6F774F2270056AB1C0552864D8469AE4EB4D09ABF3"
+      "bytes": 18022,
+      "sha256": "EE9502E581836A0B716D2EA1E3B1340F519D34CD1F3405D0C842A4328E0366FF"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterWorkerContext.html",
-      "bytes": 22117,
-      "sha256": "92D4AA77386BC1FEF11E25F172D9B83F9256C79772C6CCE98272F4B3234A525C"
+      "bytes": 22318,
+      "sha256": "FF96427CFC5A533F566AAC2F9585DC0FC0CF04FF26B21A9FFCC2B577FF0E143B"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterWorkerFrame.html",
-      "bytes": 18170,
-      "sha256": "087163F34B4DE56F2C5B7E3A5137D2A44CBEE6586B17563DDF2565E9620EF24B"
+      "bytes": 18418,
+      "sha256": "02E5DCADB0E692B5130485D359D934A4F880956139B59512E13E1E515EB85BC7"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterWorkerHost.html",
-      "bytes": 8210,
-      "sha256": "3B2E9FCB6A9105A1D7857BE7DDBC342D9DFCA436E8D72F4B322F7D94C31E95AA"
+      "bytes": 8223,
+      "sha256": "4E5EA815A7C57F52516084EFCEBD35FA99E09C28473C4D63A180E10E73D6BC9C"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.AdapterWorkerProcessArguments.html",
-      "bytes": 23533,
-      "sha256": "B1C9FE264E0F84EE430D673F50BEE0C03F28430A746608CECE2C48675495DEF4"
+      "bytes": 24260,
+      "sha256": "9F0F8FDB3D0A651FC151101AA12CDD9459C1CB18DD620AC00992FA23BBA7FB25"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.html",
-      "bytes": 18216,
-      "sha256": "4FF2F79332AF240BDE035AAC40C47ED4A775B31588FC0AF290AAF552A3B7B6AD"
+      "bytes": 23799,
+      "sha256": "12365C048E522406EF37245D093EE5F2EC2E3EDA8849D57E6991CEE05F0A0A59"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.IAdapterAtomicDirectoryDeletionBackend.html",
-      "bytes": 7155,
-      "sha256": "AD8DAF52C7990D5ABA25D13ED102E09DEDC7A419F2CCB211E6307B391C6B113A"
+      "bytes": 7438,
+      "sha256": "9724EB6032286138722A3F541344835F0CBA0D53A3FCF26EBCFD305A3E0063A1"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.IAdapterOriginalDirectoryAdmissionBackend.html",
-      "bytes": 7038,
-      "sha256": "ECD45D40EF7E733FBF64B330D45EE5E141ED21731F87719F0D6B6AAC3A9A4134"
+      "bytes": 7293,
+      "sha256": "0778D8341525D529C76920D862169758CFFC856EEE6BEE48EFDF873C12E7EA6F"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.IAdapterOriginalDirectoryBackend.html",
-      "bytes": 9433,
-      "sha256": "1EB1851F3D2A9A6B0CA810AA3B6346BC6C9AAB5C612E12B1F86B2BC4DC48FBCF"
+      "bytes": 9714,
+      "sha256": "800AFC94D02A698B0658EC57D5A9C29B96149D1D4AD582A6891F54F85C3AD74C"
     },
     {
       "path": "api/MirrorPulse.Adapter.Sdk.IAdapterWorker.html",
-      "bytes": 6493,
-      "sha256": "77A9FD556F3196F1AEDFEB63A6BFA7143491BD3936018AAA0D6CF3D98BCE6AAE"
+      "bytes": 6506,
+      "sha256": "3685F4A8CDF674CE7DA66D59876D06E23F9948CEDD8BF62E369FF8DA7D6EC090"
     },
     {
       "path": "api/toc.html",
@@ -463,38 +463,48 @@
     },
     {
       "path": "articles/atomic-original-directory-deletion.html",
-      "bytes": 7263,
-      "sha256": "489633384E8A2272CCC3A591598DA670FC48E7413DF482E95EDE72AEF0DD1A8E"
+      "bytes": 8168,
+      "sha256": "6D8BB077FD66E753136C7C0E48D6057B40CD817998580FF8F2215D7B699BDA31"
     },
     {
       "path": "articles/getting-started.html",
-      "bytes": 5342,
-      "sha256": "A90B09D8E69028B89976F9F75BCB6C770927236B27592DAB47651EAC83E49C0D"
+      "bytes": 9142,
+      "sha256": "66D307FF898F4C125220AAFC09E368E1E9FF3864EF6EBB28490C184E110A069B"
+    },
+    {
+      "path": "articles/implementing-a-worker.html",
+      "bytes": 9538,
+      "sha256": "84CD4331C98D65FF3FE1FF09454FE526569071826C26A59C244438120BDDC765"
     },
     {
       "path": "articles/index.html",
-      "bytes": 4578,
-      "sha256": "857242783B2560C74CAB4B5F9536B60F6AF85AAA55A5252DB6807C7365B2ECE0"
+      "bytes": 6651,
+      "sha256": "BC044C180C4DE90DE9A7C226FEF617ADEB0A26B8BE90C2F10E1A35B21EB77C66"
     },
     {
       "path": "articles/nuget-publishing.html",
-      "bytes": 6385,
-      "sha256": "2FE236217BE356DCF8610B0FA03ABD5ED0A3BF7812A661C36CB7B61C64E24682"
+      "bytes": 8268,
+      "sha256": "6E25BCD98C85ABEA4F7746C0ADFC0339AA2AD50B65F0FB7083D2209715657592"
     },
     {
       "path": "articles/original-directory-admission-wire.html",
-      "bytes": 8262,
-      "sha256": "1386F76C4762CF5DEAE5186F6145C41DEBF579B48C910721D5780D4C56677DA8"
+      "bytes": 9348,
+      "sha256": "7D9812B23D7EEBEC0A6F082C31E5A30D8A844EEF774B75C8658952D74AB780DD"
     },
     {
       "path": "articles/original-directory-retirement-wire.html",
-      "bytes": 8880,
-      "sha256": "244B8B54DDD6ED60DB236D9D49145D0EBC25E55DD845A75BA71664633BA1B9B0"
+      "bytes": 9509,
+      "sha256": "BE0A26E00CACAC7C8BFEA85EAD400E5BE6B979EE0D31934F3BA87CB05B7FC6A5"
     },
     {
       "path": "articles/package-configuration.html",
-      "bytes": 13259,
-      "sha256": "75FD6941A7EACC52B5A21989BC69F91777F0A66BD1F6908C22C08213B3E9B0C0"
+      "bytes": 15550,
+      "sha256": "1A1D9AF8FB7B3532CC72FF387F0CB6A61833DB6A495B4C59F74C2DA77DCC0DD2"
+    },
+    {
+      "path": "articles/test-and-publish.html",
+      "bytes": 8554,
+      "sha256": "E09C3EF857D966DC5A236E8A0660C9C7409E085FEBE92B1CA26824F17B11D6AA"
     },
     {
       "path": "public/abnfDiagram-N423BO3Z-UQKB622U.min.js",
@@ -1618,8 +1628,8 @@
     },
     {
       "path": "public/main.css",
-      "bytes": 10782,
-      "sha256": "B74652E7647C17685AD60F0935382A2846D2FCB301F83C930B10009763D72985"
+      "bytes": 12032,
+      "sha256": "AC57E26FC73371DE1540D69A7F062EE6F3B93015FE02DB09B95E3FA2E45074DF"
     },
     {
       "path": "public/main.js",
